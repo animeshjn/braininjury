@@ -60,9 +60,8 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="True"
-                    android:layout_alignParentRight="True"
-                    
+                  
+                    android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -71,16 +70,17 @@
                         android:text="List Of Strategies" 
                         android:textColor="#FFFFFF"
                         android:textSize="22sp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="|Sub Strategies" 
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"/>
                 
                 </LinearLayout>
 
-                                    
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="|Sub Strategies"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9.5sp" />
                 
             </RelativeLayout>
 

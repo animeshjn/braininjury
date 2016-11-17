@@ -10,7 +10,6 @@
         android:padding="10dp"
         android:tag="header"
         android:text="Receptive"
-        android:textColor="#ffffff"
         android:textSize="18sp" >
     </TextView>
 

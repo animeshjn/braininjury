@@ -19,7 +19,7 @@ public class CheckHandle {
 	boolean isReceptive, isExpressive, isSpeed;
 	boolean isPlanning, isMemory, isReasoning, isProblem;
 
-	boolean strategies[][] = new boolean[11][200]; // considering default to
+	boolean strategies[][] = new boolean[15][200]; // considering default to
 													// false
 	public boolean substrategies[] = new boolean[200];
 	boolean firstSubflags[] = new boolean[25];

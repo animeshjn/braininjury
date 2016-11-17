@@ -7,13 +7,10 @@
         android:id="@+id/listspeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Speed of Information Processing"
-        android:textColor="#ffffff"
-        android:textSize="18sp" 
+        android:padding="10dp"
         android:tag="header"
-        android:padding="10dp">
+        android:text="Speed of Information Processing"
+        android:textSize="18sp" >
     </TextView>
-	 
-	 
-    
+
 </RelativeLayout>

@@ -10,7 +10,6 @@
         android:padding="10dp"
         android:tag="header"
         android:text="Expressive"
-       
         android:textSize="18sp" >
     </TextView>
 

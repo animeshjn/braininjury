@@ -7,12 +7,10 @@
         android:id="@+id/listplanning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="header"
         android:text="Planning / Organizing"
-        android:textColor="#ffffff"
-        android:textSize="18sp" 
-        android:tag="header">
+        android:textSize="18sp" >
     </TextView>
-	 
-	 
-    
+
 </RelativeLayout>

@@ -7,12 +7,10 @@
         android:id="@+id/listproblemsolving"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="header"
         android:text="Problem Solving"
-        android:textColor="#ffffff"
-        android:textSize="18sp" 
-        android:tag="header">
+        android:textSize="18sp" >
     </TextView>
-	 
-	 
-    
+
 </RelativeLayout>
