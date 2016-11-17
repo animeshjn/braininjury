@@ -1062,7 +1062,7 @@ public class Strategies extends Activity {
 									R.drawable.checkback));
 							row.addView(layout);
 							table.addView(row, i);
-//comment
+//comment//
 						}
 					}
 				});
