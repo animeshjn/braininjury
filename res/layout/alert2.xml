@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="1" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="251dp"
+        android:layout_height="92dp"
+        android:layout_column="0"
+        android:layout_gravity="center"
+        android:layout_row="0"
+        android:text="You should agree to the confedentiality agreement before continuing" />
+
+    <Button
+        android:id="@+id/disagree"
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="right|bottom"
+        android:layout_row="0"
+        android:text="Disagree" />
+
+    <Button
+        android:id="@+id/agree"
+        android:layout_column="0"
+        android:layout_gravity="left|bottom"
+        android:layout_row="0"
+        android:text="Agree" />
+
+</GridLayout>

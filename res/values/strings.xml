@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Brain Injury</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="strategies_title">The Brain Injury Strategies App is intended to provide ideas for supporting an individual who is returning to learning.</string>
+
+    <string-array name="strategies">
+        <item>-A concussion is a type of traumatic brain injury</item>
+        <item>-It takes a child/adolescent an average of 7 to 21 days to recover fully from a concussion</item>
+        <item>-Because of risk of further brain damage, the most important and most immediate action 
+	        following a concussion is to reduce PHYSICAL, BEHAVIORAL and MENTAL activity </item>
+    </string-array>
+    <string-array name="subs">
+        <item>-A concussion is a type of traumatic brain injury</item>
+        <item>-It takes a child/adolescent an average of 7 to 21 days to recover fully from a concussion</item>
+        <item>-Because of risk of further brain damage, the most important and most immediate action 
+	        following a concussion is to reduce PHYSICAL, BEHAVIORAL and MENTAL activity </item>
+    </string-array>
+
+    <string name="title_activity_area_of_concern">AreaOfConcern</string>
+    <string name="fatigueinfo"><item>The Student may:\n
+        \t-Tire Quickly (physically and/or mentally)\n
+        \t-Have reduced tolerance and ability to cope </item></string>
+    <string name="sensoryinfo"><item>The Student may have:\n
+        \t* Light Sensitivity:\n
+        \t\t -Double vision or blurry vision\n
+        \t\t -Difficulty reading and copying and/or paying attention\n\t\t to visual tasks.\n
+        \t* Noise Sensitivity:\n
+        \t\t-Difficulty coping with noise level  in variety of school\n\t\t settings \n
+        \t\t (hallways, lunchroom, music classes, \n\t\t shop classes, physical education).\n
+        \t* Motor symptoms\n
+        \t\t - Dizziness/lightheadedness, which can make standing\n\t\t or walking in crowds challenging\n
+        \t\t- Difficulties with fine motor tasks\n\t\t (writing, using scissors, drawing)  </item></string>
+    <string name="attentioninfo"><item>The Student may:\n
+        \t-Appear not to listen\n
+        \t-Miss details\n
+        \t-Forget what people have said\n
+        \t-Have difficulties concentrating\n
+        \t-Be unable to cope with more than one thing at a time\n
+        \t-Be easily distracted\n 
+        \t-Change the subject often\n
+        \t-Get bored easily\n </item></string>
+    <string name="selfmonitoringinfo"><item>The Student may:\n
+        \t-Show poor adherence to rules\n
+        \t-Not realize they have made errors\n
+        \t-\'Hog\' conversations ; be verbose and keep talking\n
+        \t  when others are no longer interested\n
+        \t-Have lower tolerance for frustating situations\n  </item></string>
+    <string name="receptiveinfo"><item>The Student may:\n
+        \t-Have difficulty understanding\n
+        \t-Non verbal communication /body language ;  \n
+        \t-take statements literally\n</item></string>
+    <string name="expressiveinfo"><item>The Student may:\n
+        \t-Have difficulty initiating\n
+        \t\tand maintaining conversation (participation)  \n</item></string>
+    <string name="speedinfo"><item>The Student may:\n
+        \t-Take Longer to complete tasks\n
+        \t-Take longer to answer questions\n
+        \t-Be unable to keep track of lengthy conversations\n</item></string>
+    <string name="planninginfo"><item>The Student may:\n
+        \t-Have difficulty preparing for a task\n
+        \t-Be unable to work out the steps involved in a task\n
+        \t-Have problem with organizing their own thoughts\n
+        \t and explaining things to others</item></string>
+    <string name="memoryinfo"><item>The Student may:\n
+        \t-Have difficulty learning new things\n
+        \t-Be forgetful \n
+        \t-Lose things\n
+        \t- Have difficulty recalling what they\'ve learned</item></string>
+    <string name="reasoninginfo"><item>The Student may:\n
+        \t-Have rigid and concrete thinking style;\n
+        \t take statements literally\n
+        \t-Be resistant to change\n
+        \t-Have a simplistic understanding of emotions\n
+        \t-show poor judgement and poor decision making skills</item></string>
+    <string name="problemsolvinginfo"><item>The Student may:\n
+        \t-Have difficulty working out solutions to the problem\n
+        \t-Be unable to generate new ideas\n
+        \t-have disordered approach to problem solving\n</item></string>
+    <string name="choosetext"><item> Choose area of concern(s): </item></string>
+    <string name="longpress"><item> Long Touch\t  </item></string>
+    <string name="longpressinfo"><item> \t to learn more about symptoms</item></string>
+    <string name="title_activity_start">Start</string>
+    <string name="title_activity_strategies">Strategies</string>
+
+    <!-- resources for strategies -->
+    <string-array name="fatiguestrategies">
+        <item>Consider Focussing on core/priority subjects (Math, Science, History and English)</item>
+        <item>Consider shortening the school day</item>
+        <item> Encourage person to take breaks</item>
+    </string-array>
+    <string-array name="fatiguesubstrategies00">
+        <item>Schedule More demanding or essential tasks when student is at his/her best</item>
+        <item>Shorten, reduce or breakdown assignments into smaller manageable chunks that the student can complete without 
+            getting frustrated or having symptoms worsen</item>
+        <item> Assign a note taker</item>
+        <item>Allow student to record lectures</item>
+        <item>Provide lecture notes/Powerpoint slides or teacher tapes lectures/discussions for student to replay later</item>
+    </string-array>
+    <string-array name="fatiguesubstrategies01">
+        <item>have student arrive at school later or leave earlier, depending on when the student is best able to handle academic work</item>
+    </string-array>
+    <string-array name="fatiguesubstrategies02">
+        <item>Break time means resting the brain and the body. Breaks can be at regular intervals or as needed.</item>
+        <item>Breaks may be needed during classes, tests and/or homework assignments</item>
+        <item>Predetermined where a student can rest with supervision (clinic, library, guidance counselor\'s office, or school\'s main office). </item>
+    </string-array>
+    <string-array name="fatiguesubstrategiesarray">
+        <item>@array/fatiguesubstrategies00</item>
+        <item>@array/fatiguesubstrategies01</item>
+        <item>@array/fatiguesubstrategies02</item>
+    </string-array>
+
+    <!-- SENSORY / MOTOR  DATA -->
+    <string-array name="sensorystrategies">
+        <item>Restrict visual stimuli</item>
+        <item>Address physical issues</item>
+        <item>Reduce noise</item>
+    </string-array>
+    <string-array name="sensorysub0">
+        <item>Allow student to wear sunglasses or hat in school</item>
+        <item>Sit away from bright sunlight, dim lights or close the blinds</item>
+        <item>Warn student if lights will be turned on/off during class</item>
+        <item>Reduce exposure or brightness on screens (computers, tablets, Smart boards)</item>
+        <item>Consider using audio books</item>
+    </string-array>
+    <string-array name="sensorysub1">
+        <item>Allow student to leave class early to transition to next class before the halls are crowded</item>
+        <item>Encourage student to walk with a peer</item>
+        <item>Allow student to use the elevator, if available</item>
+        <item>Limit or avoid gym, recess, athletics</item>
+        <item>Consider reducing paper / pencil tasks or allow extra time for tasks requiring fine motor skills</item>
+        <item>Allow student to record or type assignments</item>
+    </string-array>
+    
+    <string-array name="sensorysub2">
+        <item>Allow student to have lunch in a quiet area with a classmate</item>
+        <item>Encourage student to sit away from talkative peers, open windows or school intercoms.</item>
+        <item>Limit or avoid band, choir, physical education or shop class</item>
+        <item>Allow students to avoid loud events (pep rallies, athletic events, dances, assemblies)</item>
+        <item>Allow student to leave class early to transition to next class before the halls are crowded</item>
+        <item>Consider the use of earplugs</item>
+        <item>Alert student when there is going to be a tornado or fire drill</item>
+    </string-array>
+    <string-array name="sensorysubsarray">
+        <item>@array/sensorysub0</item>
+        <item>@array/sensorysub1</item>
+        <item>@array/sensorysub2</item>
+    </string-array>
+
+    <!-- SELF-MONITORING  DATA -->
+    <string-array name="selfstrategies">
+        <item>Encourage turn taking in conversations</item>
+        <item>Use a variety of techniques to remember needed behaviors.</item>
+        <item>Provide feedback promptly and in a respectful manner when errors occur</item>
+         <item>Teach the student to repeat or re-explain directions in his/her own words to increase understanding</item>
+         <item>Create and use signals to let him/her know when he/she is talking too much</item>
+         <item>Teach student how to use class and individual schedules</item>
+         <item>Teaching Coping Strategies</item>
+    </string-array> 
+    
+    <string-array name="selfsub0">
+        <item>Help plan social times with friends</item>
+        <item>Foster friendships with positive role models</item>
+    </string-array>
+    
+    <string-array name="selfsub1">
+        <item>Use memory tricks such as mnemonics, phrases or acronyms\n
+            (SLANT- Sit up, Lean Forward, Ask Questions, Nod head, Track Teacher)</item>
+        <item>Rehearse new routines and procedures</item>
+        <item>Create a predetermined signal for student to use \n when ready to answer a question or present in front of the class</item>
+        <item>Encourage the use of lists, schedules, assignment sheet or planner</item>
+        </string-array>
+    <string-array name="selfsub2">
+        <item>Evaluate each step fpr effectiveness and \n discuss what went well and what needs to be done differently.</item>
+        
+    </string-array>
+    <string-array name="selfsub3">
+        <item>Guide student to visualize then verbalize each step</item>
+    </string-array>
+    <string-array name="selfsub4">
+        <item>Help each student decide on individual signal</item>        
+    </string-array>
+    <string-array name="selfsub5">
+        <item>May be pictures or written</item>
+    </string-array>
+    <string-array name="selfsub6">
+			<item>Use Social stories to demonstrate how to cope with situations</item>
+			<item>Provide structured social skills groups</item>
+			<item>Teach relaxation (deep breathing)</item>
+    </string-array>
+
+    <string-array name="selfsubsarray">
+        <item>@array/selfsub0</item>
+        <item>@array/selfsub1</item>
+        <item>@array/selfsub2</item>
+        <item>@array/selfsub3</item>
+        <item>@array/selfsub4</item>
+        <item>@array/selfsub5</item>
+        <item>@array/selfsub6</item>
+    </string-array>
+
+    <!-- Attention Data -->
+    <string-array name="attentionstrategies">
+        <item>Use short and specific instructions on assignments</item>
+        <item>Remove/reduce unnecessary distractions in the classroom</item>
+        <item>Make use of color coding and underlining to focus \n attention on important points</item>
+        <item>Use visual/verbal cues to redirect student\’s attention</item>
+        <item>Teach self-monitoring techniques</item>
+    </string-array>
+    
+    <string-array name="attentionsub0">
+        <item>Provide \'windows\' cut from cardboard to expose only one segment at a time</item>
+        <item>Block extraneous information on page</item>
+    </string-array>
+    <string-array name="attentionsub1">
+        <item>Decrease multiple assignments if due simultaneously</item>
+        <item>Consider lessening or removing environmental distractions \n
+            such as lighting or noise</item>
+        <item>Allow the student to wear sunglasses if light sensitive</item>
+        <item>Allow student to wear earplugs or headphones if noise sensitive</item>
+    </string-array>
+    <string-array name="attentionsub2">
+        <item>Highlight number of problems or directions to direct student to \n 
+            important information</item>
+    </string-array>
+    <string-array name="attentionsub3">
+        <item>Shorten instructions/activities so they can be completed</item>
+        <item>Write down instructions accurately and in a way that \n can be easily understood later</item>
+    </string-array>
+    <string-array name="attentionsub4">
+        <item>Set student goals for how much of a task they can complete \n in an allotted time</item>
+        <item>Use techniques such as SLANT \n
+            (sit up, lean forward, ask questions, nod your head, track the teacher) to \n
+            help them remember the needed behaviors</item>
+    </string-array>
+    
+    
+    <string-array name="attentionsubarray">
+         <item>@array/attentionsub0</item>
+         <item>@array/attentionsub1</item>
+         <item>@array/attentionsub2</item>
+         <item>@array/attentionsub3</item>
+         <item>@array/attentionsub4</item>
+        </string-array>
+    
+    
+    <!--Receptive Data  --><!--Receptive Data  --><!--Receptive Data  -->
+    <!--Receptive Data  --><!--Receptive Data  --><!--Receptive Data  -->
+    <!--Receptive Data  --><!--Receptive Data  --><!--Receptive Data  -->
+    
+    <string-array name="receptivestrategies">
+	<item>Monitor your language during instruction</item>
+	<item>Allow ffrequent opportunities for review of content material</item>
+	<item>Provide alternate ways to demonstrate mastery of content</item>
+	<item>Provide more time for a student to process information</item>
+	<item>Use visual cues with explicit language</item>
+    </string-array>
+    
+    <string-array name="receptivesub0">
+        <item>Speak clearly at a slower pace</item>
+        <item>Use direct and explicit language</item>
+        <item>Repeat important statements // directions</item>
+        <item>Avoid colloquialisms // figurative language</item>
+    </string-array>
+    
+    <string-array name="receptivesub1">
+		<item>State key points prior to and at the end of lessons</item>
+    <item>Ask review questions (of entire class) at regular intervals</item>
+    <item>Repeat important concepts out loud</item>
+    <item>Use a variety of instructional strategies to teach a siongle concept</item>
+    <item>Model (or have a peer model) activities or steps</item>
+    <item>Allow student to record lessons with audio device</item>
+    </string-array>
+    
+    <string-array name="receptivesub2">
+    <item>Allow more time when taking tests, completing assignments.</item>
+    <item>Allow students to answer tests orally rather than written</item>
+    <item>Allow test or activity to be \"open book\" or \"take home\"</item>
+    <item>Allow students to work with a partner on a project</item>
+    <item>Provide a list of acceptable forms of demonstrating understanding \n (book report, video report, etc.)</item>
+    </string-array>
+    
+    <string-array name="receptivesub3">
+    <item>Provide extra pause time when asking student a question or opening \n up discussions (\"Let\'s think about that for a minute. \")</item>
+    <item>Allow more time to complete assignments and tests</item>
+    </string-array>
+    
+    <string-array name="receptivesub4">
+    <item>Use graphic organizer for lessons // units of study</item>
+    <item>Always provide text or graphic pf important content, assignments, \n
+        and directions (write // post on white board, SmartBoard, bulletin board, etc.)</item>
+    <item>Provide yout lesson notes to student for reference and review</item>
+    <item>During oral discussion, write talking points on chart paper and\n post in classroom</item>
+    <item>Use technology such as an ipad, to depicit a social story, \n 
+        directions or steps to a process, graphically or through text.</item>
+    <item>Post mnemonic strategies when used to support lesson</item>
+    </string-array>
+    
+    
+    
+    <string-array name="receptivesubarray">
+         <item>@array/receptivesub0</item>
+         <item>@array/receptivesub1</item>
+         <item>@array/receptivesub2</item>
+         <item>@array/receptivesub3</item>
+         <item>@array/receptivesub4</item>
+        </string-array>
+    
+    
+  <!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING -->
+  <!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING -->
+  <!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING -->
+  <!-- DATA FOR SPEED OF INFORMATION PROCESSING --><!-- DATA FOR SPEED OF INFORMATION PROCESSING -->
+  
+  
+  <string-array name="speedstrategies">
+	<item>Consider additional wait time for students \n responding to questions</item>
+	<item>Encourage the use of lecture aids</item>
+	<item>Present onle one item at a time </item>
+	<item>Reduce the amount of work given in the class \n and for homework</item>
+	<item>Decide what conepts are essential for learning </item>
+	<item>Encourage the use of organizational aids</item>	
+    </string-array>
+    
+    <string-array name="speedsub0">
+		<item>Allow students to answer for themselves</item>
+		<item>Ask one question at a time</item>
+    </string-array>
+  <string-array name="speedsub1">
+		<item>Reduce devices, student note buddy, or copies of teacher\'s notes</item>
+		<item>Allow student to concentrate on lecture instead of writing and\n listening at the same time</item>
+  </string-array>
+    
+    <string-array name="speedsub2">
+        <item>
+            Avoid cognitive overload.
+        </item>
+        </string-array>
+    <string-array name="speedsub3">
+        <item>Extend time to give brain longer to process information</item>
+        <item>Break each lesson into mangeable sections</item>
+        <item>Give student Instructor\'s notes or powerpoint</item>
+        <item>Highlight important words and symbols</item>
+        <item>Allow student to have flash cards or graphic organizers for activities</item>
+        <item>Give homework only when student is fully back to learning</item>
+    </string-array>
+    
+    <string-array name="speedsub4">
+        <item>Wait to do extensions until student has fully returned to learn</item>
+        <item>Explore some concepts at a later date</item>
+        <item>Avoid multi-step concepts as well as deductive reasoning</item>
+        <item>Allow extra time for necessary assignments and dismiss some \n
+            assignments wntirely if possible</item>
+        </string-array>
+      	<string-array name="speedsub5">
+          <item>Venn Diagrams, charts, flash cards with information on conditional \n statements</item>
+          <item>Graphic organizers</item>
+          <item>Visual strategies</item>
+          <item>Checklists</item>
+          <item>Planners</item>
+          </string-array>
+    
+      	 <string-array name="speedsubarray">
+         <item>@array/speedsub0</item>
+         <item>@array/speedsub1</item>
+         <item>@array/speedsub2</item>
+         <item>@array/speedsub3</item>
+         <item>@array/speedsub4</item>
+         <item>@array/speedsub5</item>
+         </string-array>
+      	
+      	<!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA -->
+      	<!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA -->
+      	<!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA --><!-- REASONING DATA -->
+      	
+      	<string-array name="reasoningstrategies">
+      	<item>Provide real life examples when offerring explanations</item>
+      	<item>Avoid using emotional undertones</item>
+      	<item>Explain changes in routine in advance, giving reasons</item>
+      	<item>Prioritize work</item>
+      	</string-array>
+      	
+      	<string-array name="reasoningsub0">
+      	<item>Expect student to participate in group discussion about real-life\n
+      	    situations: explore pros and cons and alternatives </item>
+      	<item> Connect information to past experiences to make task more\n meaningful for the student</item>
+      	
+      	</string-array>
+      	
+      	<string-array name="reasoningsub1">
+      	    <item>Consider consistent, neutral feedback</item>
+      	    <item>Provide verbal remonders of expected behavior</item>
+      	    <item>Help the student identify signs from the environment \n to use as a model for brhavior</item>
+      	    </string-array>
+      	
+      	<string-array name="reasoningsub2">
+		<item>Discuss change with student and check for understanding</item>
+		<item>Plan alternative solutions for change</item>
+	    </string-array>
+	      	  	<string-array name="reasoningsub3">
+      	  	    <item>Help student to decide what to do first</item>
+      	  	    <item>Highlight most important points</item>
+      	  	    <item>Review at least two different options and let student select one</item>
+      	  	    <item>Break tasks into smaller and shorter segments</item>
+      	  	    </string-array>
+      	
+      	<string-array name="reasoningsubarray">
+         <item>@array/reasoningsub0</item>
+      	<item>@array/reasoningsub1</item>
+      	<item>@array/reasoningsub2</item>
+      	<item>@array/reasoningsub3</item>
+         </string-array>
+<!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA -->
+<!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA -->
+<!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA --><!-- MEMORY DATA -->         
+      	
+      	<string-array name="memorystrategies">
+			<item>Provide strategies keeping track of belongings</item>
+      		<item>Encourage use of memory aids</item>
+      		<item>Provide information and opportunities for repetition</item>
+      	</string-array>
+      	
+      	<string-array name="memorysub0">
+      	    <item>Place items in certain sections of backpack or book bag</item>
+      	    <item>Use color coding for folders \/ files for class assignments </item>
+      	    <item> Designate specific location for storing personal items</item>
+      	</string-array>
+      	
+      	
+      	<string-array name="memorysub1">
+      	    <item>Consider using any of the following: Schedules, assignment sheets,\n
+      	        calendars, checklists, journals, times tables, word banks, or flash cards</item>
+      	     <item>Use visuals to present copntent: Graphic organizers, diagrams, flow\n charts, or outline.</item>
+      	     <item>Encourage student to use self-questioning, \"wh\" questions \n (who,what,when, where, why, how)</item>
+      	</string-array>
+      	
+      	<string-array name="memorysub2">
+      	    <item>Provide an outline or overview of material to be covered in class</item>
+      	    <item>Provide class notes to the student or assign a note taker</item>
+      	    <item>Provide lecture notes/PowerPoint slides</item>
+      	    <item>Teacher tapes lectures/discussions for student to replay later \n
+      	        or allow student to record lectures</item>
+      	    <item>Repeat information (Frequent review) to reinforce learning</item>
+      	    <item>Provide multiple opportunities for practice in different formats.</item>
+      	    <item>Present information in several formats (Verbal, written, visuals, modelling)</item>
+      </string-array>
+      	
+      	<string-array name="memorysubarray">
+         <item>@array/memorysub0</item>
+      	<item>@array/memorysub1</item>
+      	<item>@array/memorysub2</item>
+      	</string-array>
+      	
+      	
+  <!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data -->
+  <!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data -->
+  <!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data -->
+  <!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data --><!-- Plannning Data -->
+  
+  	<string-array name="planningstrategies">
+  	    <item>Encourage student to take time to think\n before they speak</item>
+  	    <item>Use color coding</item>
+  	    <item>Provide strategies to help students prepare for \n a task or complete a task</item>
+  	</string-array>
+      	
+  	<string-array name="planningsub0">
+  		<item>Provide extra time for strudent to answer</item>
+  		<item>Give student the questions ahead of time</item>
+  	 </string-array>
+  	<string-array name="planningsub1">
+		<item>Color code notebooks/folders for each class/subject</item>
+		<item>Highlight important steps or information</item>
+  	</string-array>	    
+    
+  	<string-array name="planningsub2">
+		<item>Have student repeat the directions or provide written directions</item>
+		<item>Develop a checklist or task analysis with needed steps</item>
+		<item>Use visuals (diagrams, flow charts, outlines, pictures)</item>
+		<item>Use assignment sheets/books and calendars to track assignments</item>
+		<item>Encourage student to use graphic organizers</item>
+  		</string-array>	    
+  	
+  		
+  	  	<string-array name="planningsubarray">
+         <item>@array/planningsub0</item>
+         <item>@array/planningsub1</item>
+         <item>@array/planningsub2</item>
+    	</string-array>
+  	
+<!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data -->
+<!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data -->
+<!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data --><!-- Problem solving Data -->
+
+  	<string-array name="problemstrategies">
+		<item>Teach how to develop a step by step guide for problem solving</item>
+  		<item>Teach material in small chunks</item>
+  		<item>Identify achievable outcomes for the task, ensure there is a purpose</item>
+  		<item>Consider giving specific tasks</item>
+  		<item>Consider breaking the task into smaller components</item>
+  	</string-array>
+
+  	<string-array name="problemsub0">
+  		<item>Identify the problem</item>
+  		<item>Consider relevant information</item>
+  		<item>List and evaluate possible solutions</item>
+  		<item>Create a plan of action</item>
+  		<item>Evaluate the plan of action</item>
+  	</string-array>
+  	  	
+  	<string-array name="problemsub1">  	
+  	  		<item>Allow student to get a great deal of practice with one step at a time</item>
+  	  		<item>Avoid cognitive overload with smaller pieces of information</item>
+  	</string-array>    
+  	<string-array name="problemsub2">  	
+  			<item>Explain time management and prioritizing</item>
+  			<item>Teach how to develop short and long term goals</item>
+  	</string-array>
+  	<string-array name="problemsub3">
+  			<item>Provide predetermined tasks because open-ended tasks may be \n overwhelming for the student</item>
+  	</string-array>
+  	    
+  	<string-array name="problemsub4">
+  	    <item>Provide step by step visual directions and instructions</item>
+  	    <item>Start with when project is due and work backwards</item>
+  	    <item>Determine when each step needs to be completed</item>
+  	</string-array>
+  	
+  	<string-array name="problemsubarray">
+  		<item>@array/problemsub0</item>
+  		<item>@array/problemsub1</item>
+  		<item>@array/problemsub2</item>
+  		<item>@array/problemsub3</item>
+  		<item>@array/problemsub4</item>
+  	</string-array>
+  	
+  	<!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA -->
+  	<!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA -->
+  	<!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA --><!-- EXPRESSIVE DATA -->
+  	
+  	<string-array name="expressivestrategies">
+  		<item>Minimize the stress of speaking in class</item>
+  		<item>Use open-ended questions and statements</item>
+  		<item>Review steps for communication situations</item>
+  	</string-array>
+  	
+  	<string-array name="expressivesub0">
+  		<item>Pair students in the class for discussion activities</item>
+  		<item>Provide alternate forms of presentation of projects \n
+  		    (i.e, student videotaping of oral sections, poster presentation, \n graphic organizers etc.)</item>
+  		<item>Help student review the topic(s) for the following day so the\n student can prepare at least one statement or response\n
+  		    in order to contribute during the next day\'s discussion.</item>
+  	</string-array>
+  	<string-array name="expressivesub1">
+  		<item>Prompt discussion with reflective questions such as \n
+  		    \" What do you think about that \" and \" Tell me about . . . \" </item>
+  		<item>As appropriate, encourage reflective thinking when reviewing content </item>
+  	</string-array>
+  	
+  	<string-array name="expressivesub2">
+		<item>Help STudent break communication situations into small, \n discrete parts and discuss how to be successful within each part</item>
+		<item>Use video modelling as a means of reviewing and \n discussing a communication situation</item>
+		<item>Role-play with the student appropriate language to \n use in different situations</item>
+  	</string-array>
+  	
+  	<string-array name="expressivesubarray">
+  		<item>@array/expressivesub0</item>	
+  	    <item>@array/expressivesub1</item>
+  	    <item>@array/expressivesub2</item>
+  	</string-array>
+    <!-- MAP -->
+    <string name="fatiguelayout"></string>
+    <string name="sensorylayout"></string>
+    <string name="selflayout"></string>
+    <string name="attentionlayout"></string>
+    <string name="receptivelayout"></string>
+    <string name="expressivelayout"></string>
+    <string name="speedlayout"></string>
+    <string name="planninglayout"></string>
+    <string name="memorylayout"></string>
+    <string name="reasoninglayout"></string>
+    <string name="problemsolvinglayout"></string>
+
+    
+
+</resources>

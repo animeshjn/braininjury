@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border2" 
+    android:id="@+id/areaofconcernrelative">
+
+    <LinearLayout
+        android:id="@+id/areaofconcerntitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="Choose an Area of Concern"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/areaofconcernpart1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/areaofconcerntitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/physical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/framefilled"
+                android:gravity="center"
+                android:text="Physical"
+                android:textColor="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" >
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp" />
+
+                <ToggleButton
+                    android:id="@+id/fatigue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybutton"
+                    android:drawableEnd="@drawable/info"
+                    android:drawableRight="@drawable/info"
+                    android:gravity="center"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:textColor="#ffffff"
+                    android:textOff="Fatigue/Endurance"
+                    android:textOn="Fatigue/Endurance" />
+                <!--
+                          Button android:text="" 
+					    android:id="@+id/fatigueinfo"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:background="@drawable/info"
+					    />
+                -->
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+
+                <ToggleButton
+                    android:id="@+id/sensory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybutton"
+                    android:drawableEnd="@drawable/info"
+                    android:drawableRight="@drawable/info"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textOff="Sensory / Motor"
+                    android:textOn="Sensory / Motor" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="35dp"
+            android:layout_height="wrap_content" />
+
+        <!-- SECOND LAYOUT -->
+        <!-- SECOND LAYOUT -->
+        <!-- SECOND LAYOUT -->
+
+        <LinearLayout
+            android:id="@+id/behavioural"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/framefilled"
+                android:gravity="center"
+                android:text="Behavioral / Social"
+                android:textColor="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" >
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp" />
+
+                <ToggleButton
+                    android:id="@+id/self"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybutton"
+                    android:drawableEnd="@drawable/info"
+                    android:drawableRight="@drawable/info"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textOff="Self-Monitoring"
+                    android:textOn="Self-Monitoring" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+
+                <ToggleButton
+                    android:id="@+id/attention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybutton"
+                    android:drawableEnd="@drawable/info"
+                    android:drawableRight="@drawable/info"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textOff="Attention"
+                    android:textOn="Attention" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- THIRD LAYOUT THIRD LAYOUT THIRD LAYOUT THIRD LAYOUT THIRD LAYOUT -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/areaofconcernpart1"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/framefilled"
+            android:gravity="center"
+            android:text="General Cognition"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+        <!-- swapped -->
+
+        <LinearLayout
+            android:id="@+id/cognition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/frame"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame"
+                android:gravity="start"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/subframe"
+                    android:gravity="center"
+                    android:text="Communication"
+                    android:textColor="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp" />
+
+                    <ToggleButton
+                        android:id="@+id/receptive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Receptive"
+                        android:textOn="Receptive" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/expressive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Expressive"
+                        android:textOn="Expressive" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- center part two -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="top|left|start"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp" />
+
+                    <ToggleButton
+                        android:id="@+id/speed"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.29"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Speed of Information processing"
+                        android:textOn="Speed of Information processing" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/planning"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Planning / Organizing"
+                        android:textOn="Planning / Organizing" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- another part -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Memory"
+                        android:textOn="Memory" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- par two end -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="top|left|start"
+                android:gravity="start"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/reasoning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Reasoning"
+                        android:textOn="Reasoning" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/solving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textOff="Problem Solving"
+                        android:textOn="Problem Solving" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- three end -->
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="vertical" >
+
+        
+          <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                
+                
+                android:gravity="end"
+                android:orientation="horizontal" >
+            
+           <TextView android:id="@+id/legend" 
+               android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content" 
+        	   android:text="@string/choosetext" 
+               android:textColor="#000000" />
+            <Space android:layout_width="10dp"
+                        android:layout_height="wrap_content" />     
+              <Button
+                android:id="@+id/chosen"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/disabledbuttonon"
+                android:text="chosen"
+                android:textColor="#ffffff" />
+              <Space android:layout_width="10dp"
+                        android:layout_height="wrap_content" />
+              <Button
+                android:id="@+id/notchosen"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/disabledbuttonoff"
+                android:text="Not chosen"
+                android:textColor="#ffffff" />
+              
+</LinearLayout>
+            
+   <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                
+                
+                android:gravity="end"
+                android:orientation="horizontal" >
+       
+       <TextView android:id="@+id/legendinfo" 
+               android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content" 
+        	   android:text="@string/longpress" 
+               android:textColor="#000000" 
+               android:drawableRight="@drawable/info"
+               android:drawableEnd="@drawable/info"/>
+        
+        <TextView android:id="@+id/legendlearn" 
+               android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content" 
+        	   android:text="@string/longpressinfo" 
+               android:textColor="#000000" 
+               />
+       
+        
+   </LinearLayout>       
+          
+          
+          
+		</LinearLayout>
+        
+        
+        
+        
+    </LinearLayout>
+
+ 
+ <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nextbuttonlayoutareas"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+    <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/genericbutton"
+                android:text="Next"
+                android:textColor="#ffffff" />
+              
+     
+     
+</LinearLayout>
+</RelativeLayout>

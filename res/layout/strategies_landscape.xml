@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border2"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.brain2.Strategies" 
+   
+    >
+
+    <LinearLayout
+        android:id="@+id/strategiesscreen"
+        android:layout_width="match_parent"
+       	android:layout_height="fill_parent"
+    	android:layout_above="@+id/nextbuttonlayoutstrategy"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/strategiesleftpanel"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/frame"
+            android:gravity="top"
+            android:orientation="vertical" >
+	        
+            
+            <ListView
+                android:id="@+id/listAreas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ListView>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/rightpanelist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/frame"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="True"
+                android:background="@drawable/framefilled"
+                android:orientation="horizontal" 
+                android:id="@+id/listingheader">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="True"
+                    android:layout_alignParentRight="True"
+                    
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="List Of Strategies" 
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="|Sub Strategies" 
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"/>
+                
+                </LinearLayout>
+
+                                    
+                
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                 android:layout_below="@+id/listingheader"
+                 android:id="@+id/subarealinearlayout"
+                 >
+
+                <TableLayout
+                    android:id="@+id/subareatable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </TableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|clip_horizontal"
+                android:id="@+id/commentslayoutview"
+               	android:background="@android:color/darker_gray"
+                android:gravity="bottom"
+                android:orientation="horizontal" >
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/commentlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Additional Comments"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/comments"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:hint="Optional" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    
+    </LinearLayout>
+    
+<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nextbuttonlayoutstrategy"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+    <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/genericbutton"
+                android:text="Next"
+                android:textColor="#ffffff" />
+              
+     
+     
+</LinearLayout>
+</RelativeLayout>

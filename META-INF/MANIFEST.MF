@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Brain2
+Bundle-SymbolicName: Brain2
+Bundle-Version: 1.0.0.qualifier
+Export-Package: 
+ com.kellar.brain2,
+ com.kellar1.brain2
