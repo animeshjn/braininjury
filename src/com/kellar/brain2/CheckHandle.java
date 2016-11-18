@@ -19,8 +19,13 @@ public class CheckHandle {
 	boolean isReceptive, isExpressive, isSpeed;
 	boolean isPlanning, isMemory, isReasoning, isProblem;
 
-	boolean strategies[][] = new boolean[15][200]; // considering default to
-													// false
+	boolean strategies[][] = new boolean[15][150]; // considering default to
+
+	public boolean[][] getStrategies() {
+		return strategies;
+	}
+
+	// false
 	public boolean substrategies[] = new boolean[200];
 	boolean firstSubflags[] = new boolean[25];
 	public Map<String, List<Integer>> subAreaTagMapping = new HashMap<String, List<Integer>>();
@@ -424,8 +429,7 @@ public class CheckHandle {
 
 	}
 
-	
-	//GET THE SUBSTRATEGIES BOOLEAN VALUE BY INDEX
+	// GET THE SUBSTRATEGIES BOOLEAN VALUE BY INDEX
 	public boolean getSubstrategies(int index) {
 		return substrategies[index];
 	}
@@ -435,12 +439,11 @@ public class CheckHandle {
 
 	}
 
-	
-	
-	/*THIS ADDS THE CASES FOR THE ADJUSTMENT FACTOR TO THE PROVIDED STRATEGY
+	/*
+	 * THIS ADDS THE CASES FOR THE ADJUSTMENT FACTOR TO THE PROVIDED STRATEGY
 	 * 
-	 * AND HENCE GENERATES A UNIQUE NON-RANDOM ID 
-	 * */ 
+	 * AND HENCE GENERATES A UNIQUE NON-RANDOM ID
+	 */
 	public int getSubCheckId(int strategyId, String strategyArea,
 			int subStrategy) {
 
@@ -452,7 +455,7 @@ public class CheckHandle {
 		for (i = 0; i < cases.length; i++)
 			if (strategyArea.contains(cases[i]))
 				break;
-		
+
 		int adjustment = 0;
 
 		switch (i) {

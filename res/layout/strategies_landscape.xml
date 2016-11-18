@@ -89,16 +89,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                  android:layout_below="@+id/listingheader"
+                 android:layout_above="@+id/commentslayoutview"
                  android:id="@+id/subarealinearlayout"
                  >
-
+<ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
                 <TableLayout
                     android:id="@+id/subareatable"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" >
                 </TableLayout>
+                </ScrollView>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +144,7 @@
                 android:orientation="horizontal" >
 
     <Button
-                android:id="@+id/next"
+                android:id="@+id/nextbuttonstrategieslandscape"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/genericbutton"

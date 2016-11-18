@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.commonsware.cwac.merge.MergeAdapter;
 import com.kellar.brain2.CheckHandle;
+import com.kellar.brain2.PdfBean;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -55,7 +56,7 @@ public class Strategies extends Activity {
 	TableLayout table;
 	public static int subcheckid = 99;
 	boolean isAnyActiveSubstrategy;
-
+/*Main Method*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,12 +65,14 @@ public class Strategies extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		getActionBar().hide();
-
+		
 		setContentView(R.layout.strategies_landscape);
 		Log.d(Strategies.LOG_TAG, "Content view set");
 		initMap();
 		generateList();
 
+		
+		
 	}
 
 	private CharSequence[] getSubStrategies(String area, int checkBoxId) {
@@ -216,6 +219,7 @@ public class Strategies extends Activity {
 			CheckBox subs = new CheckBox(context);
 			subs.setLayoutParams(layoutParams);
 			subs.setText(subStrategies[i]);
+			
 			// Set ID should be same for particular sub-strategy every time but
 			// should be unique as well
 			subs.setId(check.getSubCheckId(checkBoxId, area, i));
@@ -2624,6 +2628,17 @@ public class Strategies extends Activity {
 //			}
 		//});
 
+		Button b=(Button)findViewById(R.id.nextbuttonstrategieslandscape);
+		b.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			PdfBean.generatePDF(context);
+				
+			}
+		});
+		
+		
 	}
 
 	@Override
