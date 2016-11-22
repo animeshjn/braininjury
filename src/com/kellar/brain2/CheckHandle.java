@@ -1,13 +1,14 @@
 package com.kellar.brain2;
 
 import java.util.ArrayList;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import com.example.brain2.R;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -18,18 +19,20 @@ public class CheckHandle {
 	boolean isFatigue, isSelf, isSensory, isAttention;
 	boolean isReceptive, isExpressive, isSpeed;
 	boolean isPlanning, isMemory, isReasoning, isProblem;
-
+	Context context;
 	boolean strategies[][] = new boolean[15][150]; // considering default to
-
+	public boolean substrategies[] = new boolean[200];
+	boolean firstSubflags[] = new boolean[25];
+	public Map<String, List<Integer>> subAreaTagMapping = new HashMap<String, List<Integer>>();
+	@SuppressLint("UseSparseArrays") 
+	public Map<Integer, CharSequence> subStrategyMapping = new HashMap<Integer, CharSequence>();
+	
 	public boolean[][] getStrategies() {
 		return strategies;
 	}
 
 	// false
-	public boolean substrategies[] = new boolean[200];
-	boolean firstSubflags[] = new boolean[25];
-	public Map<String, List<Integer>> subAreaTagMapping = new HashMap<String, List<Integer>>();
-
+	
 	public CheckHandle() {
 		super();
 		for (boolean sub[] : strategies) {
@@ -37,7 +40,7 @@ public class CheckHandle {
 			Arrays.fill(firstSubflags, Boolean.TRUE);
 
 		}
-
+		
 		initMap();
 		Arrays.fill(substrategies, Boolean.FALSE);
 
@@ -968,6 +971,7 @@ public class CheckHandle {
 
 	public boolean allUnchecked(CheckBox checkBox, String string) {
 
+		
 		return false;
 	}
 
@@ -978,4 +982,238 @@ public class CheckHandle {
 	// }
 	//
 
+	public int getAreaId(int virtualId)
+	{
+		int id=0;
+		switch(virtualId)
+		{
+		case 0:
+			id=R.array.fatiguestrategies;
+			break;
+		case 1:
+			id=R.array.sensorystrategies;
+			break;
+		case 2:
+			id=R.array.selfstrategies;
+			break;
+		case 3:
+			id=R.array.attentionstrategies;
+			break;
+		case 4:
+			id=R.array.receptivestrategies;
+			break;
+		case 5:
+			id=R.array.expressivestrategies;
+			break;
+		case 6:
+			id=R.array.speedstrategies;
+			break;
+		case 7:
+			id=R.array.memorystrategies;
+			break;
+		case 8:
+			id=R.array.reasoningstrategies;
+			break;
+		case 9:
+			id=R.array.planningstrategies;
+			break;
+		}
+		return id;
+		
+	}
+	public String getAreaName(int virtualId)
+	{
+		String areaName=null;
+		switch(virtualId)
+		{
+		case 0:
+			areaName="Fatigue";
+			break;
+		case 1:
+			areaName="Sensory";
+			break;
+		case 2:
+			areaName="Self";
+			break;
+		case 3:
+			areaName="Attention";
+			break;
+		case 4:
+			areaName="Receptive";
+			break;
+		case 5:
+			areaName="Expressive";
+			break;
+		case 6:
+			areaName="Speed";
+			break;
+		case 7:
+			areaName="Memory";
+			break;
+		case 8:
+			areaName="Reasoning";
+			break;
+		case 9:
+			areaName="Planning";
+			break;
+		}
+		return areaName;
+		
+		
+	}
+	
+	public String getStrategy(int areaId,int strategyId)
+	{
+		int id=getAreaId(areaId);
+		String strategies[]=context.getResources().getStringArray(id);
+		return strategies[strategyId];
+	}
+	
+	 CharSequence[] getSubStrategies(String area, int checkBoxId) {
+		// to do find substrategies for an area
+		CharSequence[] rowStrings = null;
+		if (area.contains("Fatigue")) {
+			TypedArray fatigueSubs = context.getResources().obtainTypedArray(
+					R.array.fatiguesubstrategiesarray);
+			rowStrings = fatigueSubs.getTextArray(checkBoxId);
+			fatigueSubs.recycle();
+		} else if (area.contains("Sensory")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.sensorysubsarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		}
+		else if (area.contains("Self")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.selfsubsarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+
+		} else if (area.contains("Attention")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.attentionsubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		}
+
+		else if (area.contains("Receptive")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.receptivesubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Speed")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.speedsubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Reasoning")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.reasoningsubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Memory")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.memorysubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Planning")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.planningsubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Problem")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.problemsubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		} else if (area.contains("Expressive")) {
+			TypedArray subs = context.getResources().obtainTypedArray(
+					R.array.expressivesubarray);
+			rowStrings = subs.getTextArray(checkBoxId);
+			subs.recycle();
+		}
+
+		return rowStrings;
+	}
+	
+	
+	
+	
+	
+	public Context getContext() {
+		return context;
+	}
+
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
+	public boolean[] getSubstrategies() {
+		return substrategies;
+	}
+
+	public void setSubstrategies(boolean[] substrategies) {
+		this.substrategies = substrategies;
+	}
+
+	public boolean[] getFirstSubflags() {
+		return firstSubflags;
+	}
+
+	public void setFirstSubflags(boolean[] firstSubflags) {
+		this.firstSubflags = firstSubflags;
+	}
+
+	public Map<String, List<Integer>> getSubAreaTagMapping() {
+		return subAreaTagMapping;
+	}
+
+	public void setSubAreaTagMapping(Map<String, List<Integer>> subAreaTagMapping) {
+		this.subAreaTagMapping = subAreaTagMapping;
+	}
+
+	public void processSubMinMax(String area,int strategyId)
+	{
+		int min=0;
+		
+		
+		String[] cases = { "Fatigue", "Sensory", "Self", "Attention",
+				"Receptive", "Expressive", "Speed", "Planning", "Memory",
+				"Reasoning", "Problem" };
+
+		int i;
+		for (i = 0; i < cases.length; i++)
+			if (area.contains(cases[i]))
+				break;
+		
+		
+		switch (i) {
+		case 0:
+			
+			
+			break;
+
+		
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void setStrategies(boolean[][] strategies) {
+		this.strategies = strategies;
+	}
+	
+	
+	
 }

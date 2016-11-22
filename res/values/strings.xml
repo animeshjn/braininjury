@@ -570,6 +570,14 @@
   	    <item>@array/expressivesub1</item>
   	    <item>@array/expressivesub2</item>
   	</string-array>
+  	<string-array name="wholesubarray">
+  	
+  	    
+  	    
+  	</string-array>
+  	
+  	
+  	
     <!-- MAP -->
     <string name="fatiguelayout"></string>
     <string name="sensorylayout"></string>

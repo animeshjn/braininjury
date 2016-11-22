@@ -61,6 +61,7 @@ public class Strategies extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = this;
+		check.setContext(context);
 		Log.d(Strategies.LOG_TAG, "Application started");
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
@@ -220,9 +221,11 @@ public class Strategies extends Activity {
 			subs.setLayoutParams(layoutParams);
 			subs.setText(subStrategies[i]);
 			
+			
 			// Set ID should be same for particular sub-strategy every time but
 			// should be unique as well
 			subs.setId(check.getSubCheckId(checkBoxId, area, i));
+			check.subStrategyMapping.put(subs.getId(),subStrategies[i]);
 			subs.setChecked(check.getSubstrategies(subs.getId()));
 			subs.setTag(area + "" + checkBoxId);
 			subs.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -2633,7 +2636,8 @@ public class Strategies extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-			PdfBean.generatePDF(context);
+				
+				new PdfBean().generatePDF(context,check);
 				
 			}
 		});
