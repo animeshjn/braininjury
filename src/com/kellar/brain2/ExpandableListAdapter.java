@@ -1,6 +1,6 @@
 package com.kellar.brain2;
 
-import com.example.brain2.R;
+import com.kellar2.brain2.R;
 
 import android.content.Context;
 import android.graphics.Typeface;

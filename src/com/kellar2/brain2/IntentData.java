@@ -1,8 +1,10 @@
-package com.example.brain2;
+package com.kellar2.brain2;
 
-import java.io.Serializable;
-
+import java.io.Serializable
+;
 import java.util.ArrayList;
+
+import com.kellar2.brain2.R;
 
 import android.widget.ToggleButton;
 

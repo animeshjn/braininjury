@@ -1,8 +1,7 @@
 package com.kellar1.brain2;
 
-import com.example.brain2.AreaOfConcern;
-
-import com.example.brain2.R;
+import com.kellar2.brain2.R;
+import com.kellar2.brain2.AreaOfConcern;
 
 import android.app.Activity;
 import android.content.Context;

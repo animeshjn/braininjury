@@ -1,4 +1,6 @@
-package com.example.brain2;
+package com.kellar2.brain2;
+
+import com.kellar2.brain2.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

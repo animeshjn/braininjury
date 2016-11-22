@@ -1,4 +1,4 @@
-package com.example.brain2;
+package com.kellar2.brain2;
 
 import java.io.Serializable;
 import java.util.ArrayList;

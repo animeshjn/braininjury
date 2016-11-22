@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.brain2"
+    package="com.kellar2.brain2"
     android:versionCode="1"
     android:versionName="1.0" >
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,15 +24,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AreaOfConcern"
+            android:name="com.kellar2.brain2.AreaOfConcern"
             android:label="@string/title_activity_area_of_concern" >
         </activity>
         <activity
-            android:name=".Start"
+            android:name="com.kellar2.brain2.Start"
             android:label="@string/title_activity_start" >
         </activity>
         <activity
-            android:name=".Strategies"
+            android:name="com.kellar2.brain2.Strategies"
             android:label="@string/title_activity_strategies" android:windowSoftInputMode="adjustResize">
             
         </activity>

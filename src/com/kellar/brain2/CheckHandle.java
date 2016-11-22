@@ -1,11 +1,12 @@
 package com.kellar.brain2;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.example.brain2.R;
+import com.kellar2.brain2.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -988,10 +989,10 @@ public class CheckHandle {
 		switch(virtualId)
 		{
 		case 0:
-			id=R.array.fatiguestrategies;
+			id=com.kellar2.brain2.R.array.fatiguestrategies;
 			break;
 		case 1:
-			id=R.array.sensorystrategies;
+			id=com.kellar2.brain2.R.array.sensorystrategies;
 			break;
 		case 2:
 			id=R.array.selfstrategies;

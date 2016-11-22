@@ -1,11 +1,14 @@
-package com.example.brain2;
+package com.kellar2.brain2;
 
 import java.util.ArrayList;
+
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.commonsware.cwac.merge.MergeAdapter;
+import com.kellar2.brain2.R;
 import com.kellar.brain2.CheckHandle;
 import com.kellar.brain2.PdfBean;
 
