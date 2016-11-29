@@ -1,51 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/strategies"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/strategiesstart"
+    android:background="@drawable/border2"
     android:columnCount="1" >
 
-    <!-- <TextView
-        android:id="@+id/titleImageDisplay"
-        android:layout_width="770dp"
-        android:layout_height="58dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/blanktitle"
-        android:clickable="true"
-        android:editable="false"
-        android:lines="2"
-        android:maxHeight="10dp"
-        android:text="@string/strategies_title"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
+    <LinearLayout
+        android:id="@+id/startlayoutpart1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="750dp"
-        android:layout_height="206dp"
-        android:layout_column="0"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="90dp"
-        android:layout_row="1"
-        android:clickable="false"
-        android:entries="@array/strategies" >
-    </ListView>
- -->
+        <LinearLayout
+            android:id="@+id/startlayoutheader1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startlayoutpart1"
+        android:layout_marginBottom="71dp"
+        android:background="@drawable/framefilled"
+        
+        android:gravity="center"
+        android:text="@string/startheader"
+        android:textStyle="italic" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/start"
-        android:layout_width="110dp"
-        android:layout_height="33dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/start_button" />
+        <LinearLayout
+            android:id="@+id/startlayoutcontentspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/startlayoutcontent1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@array/startstrategies"
+                android:textStyle="italic" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/startlayoutfooter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sources"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/framefilled"
+                android:gravity="center"
+                android:text="@string/startfooter"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/hospitallink1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/framefilled"
+                android:gravity="center"
+                android:text="@string/hospitallink"
+                android:textColor="#0F4AAE"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/startlayoutbuttonarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="110dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/start_button" />
+        </LinearLayout>
+    </LinearLayout>
+
     
-</FrameLayout>
+
+</RelativeLayout>

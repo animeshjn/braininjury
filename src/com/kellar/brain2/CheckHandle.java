@@ -889,23 +889,18 @@ public class CheckHandle {
 	public void setFatigue(boolean isFatigue) {
 		this.isFatigue = isFatigue;
 	}
-
 	public boolean isSelf() {
 		return isSelf;
 	}
-
 	public void setSelf(boolean isSelf) {
 		this.isSelf = isSelf;
 	}
-
 	public boolean isSensory() {
 		return isSensory;
 	}
-
 	public void setSensory(boolean isSensory) {
 		this.isSensory = isSensory;
 	}
-
 	public boolean isAttention() {
 		return isAttention;
 	}
@@ -937,19 +932,15 @@ public class CheckHandle {
 	public void setSpeed(boolean isSpeed) {
 		this.isSpeed = isSpeed;
 	}
-
 	public boolean isPlanning() {
 		return isPlanning;
 	}
-
 	public void setPlanning(boolean isPlanning) {
 		this.isPlanning = isPlanning;
 	}
-
 	public boolean isMemory() {
 		return isMemory;
 	}
-
 	public void setMemory(boolean isMemory) {
 		this.isMemory = isMemory;
 	}
@@ -971,17 +962,8 @@ public class CheckHandle {
 	}
 
 	public boolean allUnchecked(CheckBox checkBox, String string) {
-
-		
 		return false;
 	}
-
-	// public void uncheckAllSubstrategies(String area,int checkBoxId,ViewGroup)
-	// {
-	// ArrayList<View> views= getViewsByTag(root, String tag)
-	//
-	// }
-	//
 
 	public int getAreaId(int virtualId)
 	{
@@ -1010,17 +992,21 @@ public class CheckHandle {
 			id=R.array.speedstrategies;
 			break;
 		case 7:
+			id=R.array.planningstrategies;
+			break;
+			
+		case 8:
 			id=R.array.memorystrategies;
 			break;
-		case 8:
+			
+		case 9:
 			id=R.array.reasoningstrategies;
 			break;
-		case 9:
-			id=R.array.planningstrategies;
+		case 10:
+			id=R.array.problemstrategies;
 			break;
 		}
 		return id;
-		
 	}
 	public String getAreaName(int virtualId)
 	{
@@ -1049,14 +1035,19 @@ public class CheckHandle {
 			areaName="Speed";
 			break;
 		case 7:
-			areaName="Memory";
-			break;
-		case 8:
-			areaName="Reasoning";
-			break;
-		case 9:
 			areaName="Planning";
 			break;
+		case 8:
+			areaName="Memory";
+			break;
+		case 9:
+			areaName="Reasoning";
+			break;
+			
+		case 10:
+			areaName="Problem";
+			break;
+			
 		}
 		return areaName;
 		
@@ -1136,11 +1127,6 @@ public class CheckHandle {
 
 		return rowStrings;
 	}
-	
-	
-	
-	
-	
 	public Context getContext() {
 		return context;
 	}
@@ -1173,34 +1159,52 @@ public class CheckHandle {
 		this.subAreaTagMapping = subAreaTagMapping;
 	}
 
-	public void processSubMinMax(String area,int strategyId)
+	public String getAreaFullName(int virtualId)
 	{
-		int min=0;
-		
-		
-		String[] cases = { "Fatigue", "Sensory", "Self", "Attention",
-				"Receptive", "Expressive", "Speed", "Planning", "Memory",
-				"Reasoning", "Problem" };
-
-		int i;
-		for (i = 0; i < cases.length; i++)
-			if (area.contains(cases[i]))
-				break;
-		
-		
-		switch (i) {
+		String areaName=null;
+		switch(virtualId)
+		{
 		case 0:
-			
-			
+			areaName="Fatigue / Endurance";
 			break;
-
-		
+		case 1:
+			areaName="Sensory / Motor";
+			break;
+		case 2:
+			areaName="Self - Monitoring";
+			break;
+		case 3:
+			areaName="Attention ";
+			break;
+		case 4:
+			areaName="Receptive Communication";
+			break;
+		case 5:
+			areaName="Expressive Communication";
+			break;
+		case 6:
+			areaName="Speed Of Information Processing";
+			break;
+		case 7:
+			areaName="Planning / Organizing";
+			break;
+		case 8:
+			areaName="Memory";
+			break;
+		case 9:
+			areaName="Reasoning";
+			break;
+			
+		case 10:
+			areaName="Problem Solving";
+			break;
+			
 		}
-		
-		
+		return areaName;
 		
 		
 	}
+	
 	
 	
 	

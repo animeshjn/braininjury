@@ -253,7 +253,7 @@
     
     <string-array name="receptivestrategies">
 	<item>Monitor your language during instruction</item>
-	<item>Allow ffrequent opportunities for review of content material</item>
+	<item>Allow frequent opportunities for review of content material</item>
 	<item>Provide alternate ways to demonstrate mastery of content</item>
 	<item>Provide more time for a student to process information</item>
 	<item>Use visual cues with explicit language</item>
@@ -570,12 +570,31 @@
   	    <item>@array/expressivesub1</item>
   	    <item>@array/expressivesub2</item>
   	</string-array>
-  	<string-array name="wholesubarray">
+  	<string name="hospitallink">
+  	    <item><a href="http://rockymountainhospitalforchildren.com/service/concussion-management-reap-guidelines">http://rockymountainhospitalforchildren.com/service/concussion-management-reap-guidelines</a></item>
+  	</string>
+  	<string name="startheader">
+  	    <item>
+  	        The Brain Injury Strategies App is intended to provide ideas for \n
+  	        supporting an individual who is returning to learning.
+  	    </item>
+  	    
+  	</string>
   	
-  	    
-  	    
+  	<string-array name="startstrategies">
+  	    <item>- A concussion is a type of traumatic brain injury</item>
+  	    <item>- It takes a child/adolescent an average of 7 to 21 days \n
+  	        to fully recover from a concussion.</item>
+  	        <item> -Because of the risk of further brain damage, the most\n
+  	            important and most immediate action following a concussion is to\n
+  	            reduce PHYSICAL, BEHAVIORAL and MENTAL activity.</item>
   	</string-array>
-  	
+  		<string name="startfooter">
+  	    <item>
+  	       Sources: Rockingham County Public Schools: Report to Teachers, REAP Concussion Management Program\n
+  	       at Rocky Mountain Hospital for Children-
+  	    </item>
+  	</string>
   	
   	
     <!-- MAP -->

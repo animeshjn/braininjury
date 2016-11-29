@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border2" 
-    android:id="@+id/areaofconcernrelative">
+    android:orientation="vertical"
+    android:background="@drawable/border2"
+    android:weightSum="1"
+    >
+
+<ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="0.8"
+    >
+
+<RelativeLayout
+    android:id="@+id/areaofconcernrelative"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
     <LinearLayout
         android:id="@+id/areaofconcerntitle"
@@ -25,11 +40,12 @@
 
     <LinearLayout
         android:id="@+id/areaofconcernpart1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignRight="@+id/linearLayout1"
         android:layout_below="@+id/areaofconcerntitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
@@ -37,6 +53,7 @@
             android:id="@+id/physical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.49"
             android:orientation="vertical" >
 
             <TextView
@@ -48,7 +65,7 @@
                 android:textColor="#ffffff" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/frame"
                 android:gravity="start"
@@ -64,38 +81,33 @@
                 <ToggleButton
                     android:id="@+id/fatigue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="33dp"
                     android:background="@drawable/mybutton"
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
                     android:gravity="center"
-                    android:paddingLeft="5dip"
-                    android:paddingRight="5dip"
+                    android:paddingLeft="2dip"
+                    android:paddingRight="2dip"
                     android:textColor="#ffffff"
                     android:textOff="Fatigue/Endurance"
                     android:textOn="Fatigue/Endurance" />
-                <!--
-                          Button android:text="" 
-					    android:id="@+id/fatigueinfo"
-					    android:layout_width="wrap_content"
-					    android:layout_height="wrap_content"
-					    android:background="@drawable/info"
-					    />
-                -->
+                
 
                 <Space
                     android:layout_width="wrap_content"
-                    android:layout_height="10dp" />
+                    android:layout_height="7dp" />
 
                 <ToggleButton
                     android:id="@+id/sensory"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:background="@drawable/mybutton"
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
                     android:gravity="center"
                     android:textColor="#ffffff"
+                    android:paddingLeft="2dip"
+                    android:paddingRight="2dip"
                     android:textOff="Sensory / Motor"
                     android:textOn="Sensory / Motor" />
             </LinearLayout>
@@ -113,6 +125,7 @@
             android:id="@+id/behavioural"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.63"
             android:orientation="vertical" >
 
             <TextView
@@ -124,7 +137,7 @@
                 android:textColor="#ffffff" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/frame"
                 android:gravity="start"
@@ -132,7 +145,6 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp" >
-
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="12dp" />
@@ -140,7 +152,7 @@
                 <ToggleButton
                     android:id="@+id/self"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:background="@drawable/mybutton"
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
@@ -148,7 +160,6 @@
                     android:textColor="#ffffff"
                     android:textOff="Self-Monitoring"
                     android:textOn="Self-Monitoring" />
-
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="10dp" />
@@ -156,7 +167,7 @@
                 <ToggleButton
                     android:id="@+id/attention"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:background="@drawable/mybutton"
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
@@ -164,6 +175,7 @@
                     android:textColor="#ffffff"
                     android:textOff="Attention"
                     android:textOn="Attention" />
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -177,8 +189,8 @@
         android:layout_below="@+id/areaofconcernpart1"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical" >
 
         <TextView
@@ -193,12 +205,12 @@
 
         <LinearLayout
             android:id="@+id/cognition"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/frame"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -231,7 +243,7 @@
                     <ToggleButton
                         android:id="@+id/receptive"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="29dp"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
@@ -247,7 +259,7 @@
                     <ToggleButton
                         android:id="@+id/expressive"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="32dp"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
@@ -284,9 +296,8 @@
 
                     <ToggleButton
                         android:id="@+id/speed"
-                        android:layout_width="140dp"
+                        android:layout_width="125dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.29"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
@@ -301,7 +312,7 @@
 
                     <ToggleButton
                         android:id="@+id/planning"
-                        android:layout_width="140dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
@@ -335,6 +346,20 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp" >
 
+                    <ToggleButton
+                        android:id="@+id/memoryhidden"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.57"
+                        android:background="@drawable/mybutton"
+                        android:drawableEnd="@drawable/info"
+                        android:drawableRight="@drawable/info"
+                        android:gravity="center_vertical"
+                        android:textColor="#ffffff"
+                        android:textOff="Memory"
+                        android:textOn="Memory"
+                        android:visibility="invisible" />
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="10dp" />
@@ -346,15 +371,17 @@
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:textColor="#ffffff"
                         android:textOff="Memory"
-                        android:textOn="Memory" />
+                        android:padding="2dp"
+                        android:textOn="Memory"/>
 
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="10dp" />
                 </LinearLayout>
+
             </LinearLayout>
 
             <!-- par two end -->
@@ -386,6 +413,7 @@
                         android:id="@+id/reasoning"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.29"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
@@ -409,7 +437,9 @@
                         android:textColor="#ffffff"
                         android:textOff="Problem Solving"
                         android:textOn="Problem Solving" />
+
                 </LinearLayout>
+
             </LinearLayout>
 
             <!-- three end -->
@@ -418,7 +448,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        >
 
         
           <LinearLayout
@@ -462,8 +493,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                
-                
                 android:gravity="end"
                 android:orientation="horizontal" >
        
@@ -488,20 +517,21 @@
           
           
 		</LinearLayout>
-        
-        
-        
-        
     </LinearLayout>
 
  
+
+</RelativeLayout>
+</ScrollView>
+
  <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/nextbuttonlayoutareas"
-                android:layout_alignParentBottom="true"
+                android:layout_weight="0.2"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal" >
+                android:orientation="horizontal" 
+                >
 
     <Button
                 android:id="@+id/next"
@@ -510,8 +540,5 @@
                 android:background="@drawable/genericbutton"
                 android:text="Next"
                 android:textColor="#ffffff" />
-              
-     
-     
 </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

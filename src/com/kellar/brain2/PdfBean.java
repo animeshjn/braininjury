@@ -1,22 +1,25 @@
 package com.kellar.brain2;
 
 import java.io.ByteArrayOutputStream;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.kellar2.brain2.R;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,28 +28,26 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 public class PdfBean {
 
 	static ArrayList<Paragraph> plist = new ArrayList<Paragraph>();
-
+	PdfPTable table = new PdfPTable(1);
 	Font headfont;
 	ArrayList<PdfPCell> celllist = new ArrayList<PdfPCell>();
 
 	public void initFonts() {
-		Font f = new Font();
-		f.setColor(BaseColor.RED);
-		f.setStyle(Font.UNDERLINE);
-		f.setSize(20);
+		Font f = new Font(FontFamily.HELVETICA, 14, Font.NORMAL, BaseColor.RED);
 		headfont = f;
 
 	}
 
 	public void generatePDF(Context activity, CheckHandle check) {
+		
 		try {
 
-			setPdfContentString(check);
-			PdfPTable table = new PdfPTable(1);
+			
 			PdfWriter writer = null;
 			String path = Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/Strategies";
@@ -70,6 +71,7 @@ public class PdfBean {
 			document.addTitle("Strategies");
 			Log.d("Brain", "add paragraph :");
 			// document.add(new Paragraph("Hello World!"));
+			
 			// getting Image from assets
 			java.io.InputStream ims = activity.getAssets().open("header1.png");
 			Bitmap bmp = BitmapFactory.decodeStream(ims);
@@ -81,9 +83,11 @@ public class PdfBean {
 					PageSize.A4.getHeight() - image.getScaledHeight());
 			PdfPCell imagelogocell = new PdfPCell(image, true);
 			table.addCell(imagelogocell);
-			for (PdfPCell cell : celllist) {
-				table.addCell(cell);
-			}
+			setPdfContentString(check);
+			
+//			for (PdfPCell cell : celllist) {
+//				table.addCell(cell);
+//			}
 			// document.add(image);
 			// document.add(activity.getResources().getDrawable(R.drawable.framefilled));
 			document.add(table);
@@ -122,6 +126,7 @@ public class PdfBean {
 		boolean head = false;
 		for (int i = 0; i < strategies.length; i++) {
 			head = true;
+			
 			for (int j = 0; j < strategies[i].length; j++) {
 				// if i,j is true then
 				if (strategies[i][j]) {
@@ -129,27 +134,40 @@ public class PdfBean {
 					 * This strategy is checkedRetrieve it Print to PDF
 					 */
 					if (head) {
+					try{	
+						//Chunk headText = new Chunk(, headfont);
 						Paragraph header = new Paragraph();
-						header.add(check.getAreaName(i));
+						header.add(check.getAreaFullName(i));
 						header.setFont(headfont);
 						PdfPCell cell = new PdfPCell();
-						cell.addElement(header);
+						//cell.addElement(header);
 						cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
 						cell.setBorder(Rectangle.NO_BORDER);
-						celllist.add(cell);
+						//phrase
+						Phrase phrase = new Phrase();
+						phrase.add(
+						    new Chunk(check.getAreaFullName(i),  new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD,BaseColor.RED))
+						);
+						//phrase.add(new Chunk(", some normal text", new Font()));
+						cell.addElement(phrase);
+						table.addCell(cell);
 						plist.add(header);
-						head = false;
+						head = false;}
+					catch(Exception e){e.printStackTrace();}
+					
 					}
 					strategy = check.getStrategy(i, j);
-					strategy="\u25CF"+strategy;
+					strategy = "\u2022   " + strategy;
 					Paragraph p = new Paragraph();
+					p.setIndentationLeft(8);
 					p.add(strategy);
 					plist.add(p);
 					PdfPCell subcell = new PdfPCell();
 					subcell.addElement(p);
 					subcell.setVerticalAlignment(Element.ALIGN_BOTTOM);
 					subcell.setBorder(Rectangle.NO_BORDER);
-					celllist.add(subcell);
+					table.addCell(subcell);
+					//celllist.add(subcell);
 					// If this strategy has sub-strategy
 					boolean substrategyChecked[] = check.substrategies;
 					ArrayList<Integer> limits = (ArrayList<Integer>) check.subAreaTagMapping
@@ -160,15 +178,16 @@ public class PdfBean {
 									.get(integer);
 							Paragraph subpara = new Paragraph();
 							subpara.add(new String("-" + sub));
-							subpara.setIndentationLeft(12);
+							subpara.setIndentationLeft(15);
 							Log.d("Brain", "SUB :" + sub);
 							plist.add(subpara);
 							PdfPCell subparacell = new PdfPCell();
 							subparacell.addElement(subpara);
 							subparacell
-									.setVerticalAlignment(Element.ALIGN_BOTTOM);
+							.setVerticalAlignment(Element.ALIGN_BOTTOM);
 							subparacell.setBorder(Rectangle.NO_BORDER);
-							celllist.add(subparacell);
+							table.addCell(subparacell);
+							//celllist.add(subparacell);
 						}
 					}
 				}

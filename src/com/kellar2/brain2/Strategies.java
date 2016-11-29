@@ -1,8 +1,6 @@
 package com.kellar2.brain2;
 
 import java.util.ArrayList;
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Strategies extends Activity {
 	ArrayAdapter<String> adapter;
@@ -59,7 +58,8 @@ public class Strategies extends Activity {
 	TableLayout table;
 	public static int subcheckid = 99;
 	boolean isAnyActiveSubstrategy;
-/*Main Method*/
+
+	/* Main Method */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,14 +69,11 @@ public class Strategies extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		getActionBar().hide();
-		
 		setContentView(R.layout.strategies_landscape);
 		Log.d(Strategies.LOG_TAG, "Content view set");
 		initMap();
 		generateList();
 
-		
-		
 	}
 
 	private CharSequence[] getSubStrategies(String area, int checkBoxId) {
@@ -161,11 +158,11 @@ public class Strategies extends Activity {
 		// physical
 		areasLayouts.put("Fatigue", R.layout.fatigueheader);
 		areasLayouts.put("Sensory", R.layout.sensoryheader);
-
+		
 		// Behavioral
 		areasLayouts.put("Self", R.layout.selfmonitoring);
 		areasLayouts.put("Attention", R.layout.attentionheader);
-
+		
 		// Cognition
 		areasLayouts.put("Receptive", R.layout.receptiveheader);
 		areasLayouts.put("Expressive", R.layout.expressiveheader);
@@ -223,12 +220,11 @@ public class Strategies extends Activity {
 			CheckBox subs = new CheckBox(context);
 			subs.setLayoutParams(layoutParams);
 			subs.setText(subStrategies[i]);
-			
-			
+
 			// Set ID should be same for particular sub-strategy every time but
 			// should be unique as well
 			subs.setId(check.getSubCheckId(checkBoxId, area, i));
-			check.subStrategyMapping.put(subs.getId(),subStrategies[i]);
+			check.subStrategyMapping.put(subs.getId(), subStrategies[i]);
 			subs.setChecked(check.getSubstrategies(subs.getId()));
 			subs.setTag(area + "" + checkBoxId);
 			subs.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -283,10 +279,11 @@ public class Strategies extends Activity {
 
 		for (String selected : selectedPhysical) {
 			if (selected.contains("Fatigue")) {
-				
+
 				layout = inflater.inflate(areasLayouts.get("Fatigue"), null);
-				
-				final TextView item = (TextView) layout.findViewWithTag("header");
+
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
 				item.setText(selected);
 				Drawable exclaim = getResources().getDrawable(
 						R.drawable.exclaim);
@@ -709,26 +706,22 @@ public class Strategies extends Activity {
 
 	}
 
-	
 	// to append selected from Cognitive area of concern to merge adapter
-		@SuppressLint("InflateParams")
-		public void appendCognitiveItems() {
+	@SuppressLint("InflateParams")
+	public void appendCognitiveItems() {
 
-			LayoutInflater inflater = (LayoutInflater) this
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater inflater = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-			View relativelayout = inflater.inflate(R.layout.header, null);
-			TextView header = (TextView) relativelayout
-					.findViewById(R.id.listheader);
-			header.setText("General Cognition");
-			merge.addView(relativelayout);
-			merge.addViews(getSelectedCognitiveViews());
-			
-		}
-	
-	
-	
-	
+		View relativelayout = inflater.inflate(R.layout.header, null);
+		TextView header = (TextView) relativelayout
+				.findViewById(R.id.listheader);
+		header.setText("General Cognition");
+		merge.addView(relativelayout);
+		merge.addViews(getSelectedCognitiveViews());
+
+	}
+
 	/*
 	 * ==========================================================================
 	 * ==
@@ -1111,1465 +1104,1453 @@ public class Strategies extends Activity {
 		return views;
 	}
 
-	/*=======================================|||||||||||||||||||||||||||||||||
+	/*
+	 * =======================================|||||||||||||||||||||||||||||||||
 	 * 
-	 * LOGICAL DIVISION 
+	 * LOGICAL DIVISION
 	 * 
-	 * COGNITIVE VIEWS 
+	 * COGNITIVE VIEWS
 	 * 
 	 * LOGIC STARTS HERE FOR BIGGEST AREA OF CONCERN
-	 * 
-	 * 
-	 * */
-	
-	 public ArrayList<View> getSelectedCognitiveViews()
-	 {
+	 */
 
-			ArrayList<View> views = new ArrayList<View>();
-			LayoutInflater inflater = (LayoutInflater) this
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			View layout;
+	public ArrayList<View> getSelectedCognitiveViews() {
 
-			// search one by one into the map
-			// loop has big else-if ladder as required by the Application.
+		ArrayList<View> views = new ArrayList<View>();
+		LayoutInflater inflater = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout;
 
-			for (String selected : selectedCognition) {
-				if (selected.contains("Receptive")) {
-					layout = inflater.inflate(areasLayouts.get("Receptive"), null);
-					final TextView item = (TextView) layout.findViewWithTag("header");
-					item.setText(selected);
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim);
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
+		// search one by one into the map
+		// loop has big else-if ladder as required by the Application.
 
-					item.setOnClickListener(new OnClickListener() {
+		for (String selected : selectedCognition) {
+			if (selected.contains("Receptive")) {
+				layout = inflater.inflate(areasLayouts.get("Receptive"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				item.setText(selected);
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim);
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
 
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
+				item.setOnClickListener(new OnClickListener() {
 
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
-							String[] array = res
-									.getStringArray(R.array.receptivestrategies);
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
 
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
+						String[] array = res
+								.getStringArray(R.array.receptivestrategies);
 
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
 
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
 
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
 
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Receptive",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
 
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue(
+									"Receptive", i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
 
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
-											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-										} else {
-											// check if all others are unchecked
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-											// Uncheck all substrategies
-											// get all substrategies
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
 
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Receptive" + buttonView.getId());
-											for (View view : views) {
+									} else {
+										// check if all others are unchecked
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+										// Uncheck all substrategies
+										// get all substrategies
 
-												if (view instanceof CheckBox) {/*
-																				 * SAFETY
-																				 * ERROR
-																				 * HANDLING
-																				 */
-													CheckBox cb = (CheckBox) view;
-													/* CAST FOR CHECKBOX PROPERTIES */
-													cb.setChecked(false);
-													/* UNCHECK IN VIEW */
-													check.setSubstrategies(
-															cb.getId(), false);
-													/* UNCHECK IN LOGIC */
-												}
-											}
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Receptive"
+														+ buttonView.getId());
+										for (View view : views) {
 
-											// UnCheck hidden SubStrategies
-											List<Integer> self = check.subAreaTagMapping
-													.get("Receptive"
-															+ buttonView.getId());
-											for (Integer i : self) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Receptive")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
+											if (view instanceof CheckBox) {/*
+																			 * SAFETY
+																			 * ERROR
+																			 * HANDLING
+																			 */
+												CheckBox cb = (CheckBox) view;
+												/* CAST FOR CHECKBOX PROPERTIES */
+												cb.setChecked(false);
+												/* UNCHECK IN VIEW */
+												check.setSubstrategies(
+														cb.getId(), false);
+												/* UNCHECK IN LOGIC */
 											}
 										}
-									}
-								});
 
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
+										// UnCheck hidden SubStrategies
+										List<Integer> self = check.subAreaTagMapping
+												.get("Receptive"
+														+ buttonView.getId());
+										for (Integer i : self) {
+											check.substrategies[i] = false;
+										}
 
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-										// get subStrategies from string.xml
-										CharSequence subStrategies[] = getSubStrategies(
-												"Receptive", checkBoxId);
-										// get TableRow for extracted subStrategies
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Receptive");
-
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
-									}
-
-								});
-
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
-
-							}
-						}
-					});
-
-					views.add(layout);
-				} else if (selected.contains("Expressive")) {
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 * ****| CASE FOR SENSORY | CASE FOR SENSORY | CASE FOR SENSORY
-					 * | CASE FOR SENSORY | CASE FOR SENSORY | CASE FOR SENSORY
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
-
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Expressive"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
-
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
-
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
-
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
-
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.expressivestrategies);
-
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
-
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
-
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
-
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
-
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Expressive",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
-
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
+										if (check.isAllUnchecked("Receptive")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
 											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Expressive" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> attention= check.subAreaTagMapping
-													.get("Expressive"
-															+ buttonView.getId());
-											for (Integer i : attention) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Expressive")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
+													null, null, exclaim, null);
 
 										}
 									}
-								});
+								}
+							});
 
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
 
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
+								@Override
+								public void onClick(View v) {
 
-									@Override
-									public void onClick(View v) {
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+									// get subStrategies from string.xml
+									CharSequence subStrategies[] = getSubStrategies(
+											"Receptive", checkBoxId);
+									// get TableRow for extracted subStrategies
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Receptive");
 
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
+									table = (TableLayout) findViewById(R.id.subareatable);
 
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Expressive", checkBoxId);
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+								}
 
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Expressive");
+							});
 
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
 
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
-
-									}
-
-								});
-
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
-
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
-
-							}
 						}
-					});
+					}
+				});
 
-					views.add(layout);
-/*the next brace closes the else-if condition for this sub-area */
-				}
-				//speed
-				else if (selected.contains("Speed")){
+				views.add(layout);
+			} else if (selected.contains("Expressive")) {
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * ****| CASE FOR SENSORY | CASE FOR SENSORY | CASE FOR SENSORY
+				 * | CASE FOR SENSORY | CASE FOR SENSORY | CASE FOR SENSORY
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
 
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 *
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Expressive"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
 
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Speed"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
 
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
 
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
 
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.expressivestrategies);
 
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.speedstrategies);
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
 
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
 
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
 
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
 
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue(
+									"Expressive", i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
 
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Speed",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
 
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Expressive"
+														+ buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> attention = check.subAreaTagMapping
+												.get("Expressive"
+														+ buttonView.getId());
+										for (Integer i : attention) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Expressive")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
 											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Speed" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> tagged= check.subAreaTagMapping
-													.get("Speed"
-															+ buttonView.getId());
-											for (Integer i : tagged) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Speed")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
+													null, null, exclaim, null);
 
 										}
-									}
-								});
-
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Speed", checkBoxId);
-
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Speed");
-
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
 
 									}
+								}
+							});
 
-								});
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
 
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
 
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
+								@Override
+								public void onClick(View v) {
 
-							}
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Expressive", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Expressive");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
 						}
-					});
+					}
+				});
 
-					views.add(layout);
-/*the next brace closes the else-if condition for this sub-area */
-				
-					
-				}
-				
-				else if (selected.contains("Planning")){
+				views.add(layout);
+				/* the next brace closes the else-if condition for this sub-area */
+			}
+			// speed
+			else if (selected.contains("Speed")) {
 
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 *
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * 
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
 
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Planning"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Speed"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
 
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
 
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
 
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
 
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.planningstrategies);
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.speedstrategies);
 
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
 
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
 
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
 
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
 
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
 
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Planning",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue("Speed", i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
 
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
+
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Speed" + buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> tagged = check.subAreaTagMapping
+												.get("Speed"
+														+ buttonView.getId());
+										for (Integer i : tagged) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Speed")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
 											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Planning" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> tagged= check.subAreaTagMapping
-													.get("Planning"
-															+ buttonView.getId());
-											for (Integer i : tagged) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Planning")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
+													null, null, exclaim, null);
 
 										}
-									}
-								});
-
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Planning", checkBoxId);
-
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Planning");
-
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
 
 									}
+								}
+							});
 
-								});
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
 
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
 
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
+								@Override
+								public void onClick(View v) {
 
-							}
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Speed", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId, "Speed");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
 						}
-					});
-
-					views.add(layout);
-/*the next brace closes the else-if condition for this sub-area */
-				
-					
-				}
-				
-				else if (selected.contains("Memory")){
-
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 *
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
-
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Memory"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
-
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
-
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
-
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
-
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.memorystrategies);
-
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
-
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
-
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
-
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
-
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Memory",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
-
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
-											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Memory" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> tagged= check.subAreaTagMapping
-													.get("Memory"
-															+ buttonView.getId());
-											for (Integer i : tagged) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Memory")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
-
-										}
-									}
-								});
-
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Memory", checkBoxId);
-
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Planning");
-
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
-
-									}
-
-								});
-
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
-
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
-
-							}
-						}
-					});
-
-					views.add(layout);
-/*the next brace closes the else-if condition for this sub-area */
-				
-					
-				}
-
-				else if (selected.contains("Reasoning")){
-
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 *
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
-
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Reasoning"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
-
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
-
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
-
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
-
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.reasoningstrategies);
-
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
-
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
-
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
-
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
-
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Reasoning",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
-
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
-											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Reasoning" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> tagged= check.subAreaTagMapping
-													.get("Reasoning"
-															+ buttonView.getId());
-											for (Integer i : tagged) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Reasoning")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
-
-										}
-									}
-								});
-
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Reasoning", checkBoxId);
-
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Reasoning");
-
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
-
-									}
-
-								});
-
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
-
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
-
-							}
-						}
-					});
-
-					views.add(layout);
-/*the next brace closes the else-if condition for this sub-area */
-				
-					
-				}
-				
-				
-				else if (selected.contains("Problem")){
-
-					/*
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 * 
-					 *
-					 * |****
-					 * 
-					 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
-					 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
-					 */
-
-					// GET LAYOUT FORM THE MAP
-					layout = inflater.inflate(areasLayouts.get("Problem"), null);
-					final TextView item = (TextView) layout
-							.findViewWithTag("header");
-					// GET TEXT VIEW FROM LAYOUT
-					item.setText(selected);
-					// SET THE CURRENT TEXT
-					Drawable exclaim = getResources().getDrawable(
-							R.drawable.exclaim); // DRAW
-					item.setCompoundDrawablesWithIntrinsicBounds(null, null,
-							exclaim, null);
-
-					// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
-					item.setOnClickListener(new OnClickListener() {
-
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(View v) {
-							// append rows to table
-
-							table = (TableLayout) findViewById(R.id.subareatable);
-							table.removeAllViews();
-							Resources res = getResources();
-
-							// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
-							// Substrategies!!!)
-							String[] array = res
-									.getStringArray(R.array.problemstrategies);
-
-							// PROCESS THE TABLE
-							for (int i = 0; i < array.length; i++) {
-								TableRow row = new TableRow(context);
-
-								TableRow.LayoutParams params = new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT);
-								row.setLayoutParams(params);
-								RelativeLayout layout = new RelativeLayout(table
-										.getContext());
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.MATCH_PARENT,
-										TableRow.LayoutParams.MATCH_PARENT));
-
-								LinearLayout checkboxlayout = new LinearLayout(
-										table.getContext());
-
-								RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
-										RelativeLayout.LayoutParams.WRAP_CONTENT,
-										RelativeLayout.LayoutParams.WRAP_CONTENT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-								checkboxparam
-										.addRule(RelativeLayout.ALIGN_PARENT_START);
-								checkboxlayout.setLayoutParams(checkboxparam);
-
-								layout.setLayoutParams(new TableRow.LayoutParams(
-										TableRow.LayoutParams.WRAP_CONTENT,
-										TableRow.LayoutParams.WRAP_CONTENT));
-
-								checkBox = new CheckBox(context);
-								checkBox.setText(array[i]);
-								checkBox.setTag("a" + i);
-								checkBox.setId(i);
-								checkBox.setChecked(check.getCheckValue("Problem",
-										i));
-								checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-										LinearLayout.LayoutParams.WRAP_CONTENT,
-										LinearLayout.LayoutParams.WRAP_CONTENT));
-
-								checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-									@Override
-									public void onCheckedChanged(
-											CompoundButton buttonView,
-											boolean isChecked) {
-										// change image in the text view
-										if (isChecked) {
-											check.setChecked(item,
-													(CheckBox) buttonView);
-											Drawable tick = getResources()
-													.getDrawable(R.drawable.tick);
-											item.setCompoundDrawablesWithIntrinsicBounds(
-													null, null, tick, null);
-
-										} else {
-
-											/* CHECK if all others are unchecked */
-											check.setUnchecked(item,
-													(CheckBox) buttonView);
-
-											/* Uncheck all substrategies */
-
-											/*
-											 * FOR THE SUBSTRATEGIES VISIBLE IN THE
-											 * VIEW RIGHT NOW
-											 */
-											ArrayList<View> views = getViewsByTag(
-													(ViewGroup) findViewById(R.id.subarealinearlayout),
-													"Problem" + buttonView.getId());
-											for (View view : views) {
-
-												if (view instanceof CheckBox) {
-													CheckBox cb = (CheckBox) view;
-													cb.setChecked(false); // uncheck
-
-													check.setSubstrategies(
-															cb.getId(), false);
-													// uncheck
-													// in
-													// logic
-
-												}
-											}
-
-											/* UNCHECK HIDDEN SUBSTRATEGIES */
-											List<Integer> tagged= check.subAreaTagMapping
-													.get("Problem"
-															+ buttonView.getId());
-											for (Integer i : tagged) {
-												check.substrategies[i] = false;
-											}
-
-											if (check.isAllUnchecked("Problem")) {
-												Drawable exclaim = getResources()
-														.getDrawable(
-																R.drawable.exclaim);
-												item.setCompoundDrawablesWithIntrinsicBounds(
-														null, null, exclaim, null);
-
-											}
-
-										}
-									}
-								});
-
-								Button sub = new Button(context);
-								RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-										40, 40);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_END);
-								buttonparam
-										.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-								sub.setLayoutParams(buttonparam);
-								sub.setBackground(getResources().getDrawable(
-										R.drawable.plusbuttondraw));
-
-								sub.setId(20 + i);
-								sub.setOnClickListener(new OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										/* handle this substrategy(i) */
-										item.callOnClick();
-										int plusid = v.getId();
-										int checkBoxId = plusid - 20;
-
-										/* GET subStrategies from string.xml */
-										CharSequence subStrategies[] = getSubStrategies(
-												"Problem", checkBoxId);
-
-										/* GET TableRow for extracted subStrategies */
-										TableRow tr = getSubStrategyRow(
-												subStrategies, checkBoxId,
-												"Problem");
-
-										/* GET THE TABLE TO ADD ROW */
-										table = (TableLayout) findViewById(R.id.subareatable);
-
-										table.addView(tr, checkBoxId + 1);
-										isAnyActiveSubstrategy = false;
-
-									}
-
-								});
-
-								checkboxlayout.addView(checkBox);
-								layout.addView(checkboxlayout);
-								layout.addView(sub);
-
-								layout.setBackground(getResources().getDrawable(
-										R.drawable.checkback));
-								row.addView(layout);
-								table.addView(row, i);
-
-							}
-						}
-					});
-
-					views.add(layout);
-					
-				}		
+					}
+				});
+
+				views.add(layout);
+				/* the next brace closes the else-if condition for this sub-area */
 
 			}
 
-			return views;
+			else if (selected.contains("Planning")) {
 
-		
-		 
-		 
-		 
-	 }
-	
-	
-	
-	
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * 
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
+
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Planning"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
+
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
+
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
+
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
+
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.planningstrategies);
+
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
+
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
+
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
+
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
+
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue("Planning",
+									i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
+
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
+
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Planning" + buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> tagged = check.subAreaTagMapping
+												.get("Planning"
+														+ buttonView.getId());
+										for (Integer i : tagged) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Planning")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
+											item.setCompoundDrawablesWithIntrinsicBounds(
+													null, null, exclaim, null);
+
+										}
+
+									}
+								}
+							});
+
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
+
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
+
+								@Override
+								public void onClick(View v) {
+
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Planning", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Planning");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
+						}
+					}
+				});
+
+				views.add(layout);
+				/* the next brace closes the else-if condition for this sub-area */
+
+			}
+
+			else if (selected.contains("Memory")) {
+
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * 
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
+
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Memory"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
+
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
+
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
+
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
+
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.memorystrategies);
+
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
+
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
+
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
+
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
+
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check
+									.getCheckValue("Memory", i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
+
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
+
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Memory" + buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> tagged = check.subAreaTagMapping
+												.get("Memory"
+														+ buttonView.getId());
+										for (Integer i : tagged) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Memory")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
+											item.setCompoundDrawablesWithIntrinsicBounds(
+													null, null, exclaim, null);
+
+										}
+
+									}
+								}
+							});
+
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
+
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
+
+								@Override
+								public void onClick(View v) {
+
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Memory", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Planning");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
+						}
+					}
+				});
+
+				views.add(layout);
+				/* the next brace closes the else-if condition for this sub-area */
+
+			}
+
+			else if (selected.contains("Reasoning")) {
+
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * 
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
+
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Reasoning"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
+
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
+
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
+
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
+
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.reasoningstrategies);
+
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
+
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
+
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
+
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
+
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue(
+									"Reasoning", i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
+
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
+
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Reasoning"
+														+ buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> tagged = check.subAreaTagMapping
+												.get("Reasoning"
+														+ buttonView.getId());
+										for (Integer i : tagged) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Reasoning")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
+											item.setCompoundDrawablesWithIntrinsicBounds(
+													null, null, exclaim, null);
+
+										}
+
+									}
+								}
+							});
+
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
+
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
+
+								@Override
+								public void onClick(View v) {
+
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Reasoning", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Reasoning");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
+						}
+					}
+				});
+
+				views.add(layout);
+				/* the next brace closes the else-if condition for this sub-area */
+
+			}
+
+			else if (selected.contains("Problem")) {
+
+				/*
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 * 
+				 * 
+				 * |****
+				 * 
+				 * LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |LAYOUT AREA CHANGE |
+				 * LAYOUT AREA CHANGE |LAYOUT AREA CHANGE | LAYOUT AREA CHANGE |
+				 */
+
+				// GET LAYOUT FORM THE MAP
+				layout = inflater.inflate(areasLayouts.get("Problem"), null);
+				final TextView item = (TextView) layout
+						.findViewWithTag("header");
+				// GET TEXT VIEW FROM LAYOUT
+				item.setText(selected);
+				// SET THE CURRENT TEXT
+				Drawable exclaim = getResources().getDrawable(
+						R.drawable.exclaim); // DRAW
+				item.setCompoundDrawablesWithIntrinsicBounds(null, null,
+						exclaim, null);
+
+				// LISTEN FOR THE CLICK AND GENERATE STRATEGIES
+				item.setOnClickListener(new OnClickListener() {
+
+					@SuppressLint("InlinedApi")
+					@Override
+					public void onClick(View v) {
+						// append rows to table
+
+						table = (TableLayout) findViewById(R.id.subareatable);
+						table.removeAllViews();
+						Resources res = getResources();
+
+						// GET RESOURCE ARRAY OF SENSORY STRATEGIES(!Not
+						// Substrategies!!!)
+						String[] array = res
+								.getStringArray(R.array.problemstrategies);
+
+						// PROCESS THE TABLE
+						for (int i = 0; i < array.length; i++) {
+							TableRow row = new TableRow(context);
+
+							TableRow.LayoutParams params = new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setLayoutParams(params);
+							RelativeLayout layout = new RelativeLayout(table
+									.getContext());
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.MATCH_PARENT,
+									TableRow.LayoutParams.MATCH_PARENT));
+
+							LinearLayout checkboxlayout = new LinearLayout(
+									table.getContext());
+
+							RelativeLayout.LayoutParams checkboxparam = new RelativeLayout.LayoutParams(
+									RelativeLayout.LayoutParams.WRAP_CONTENT,
+									RelativeLayout.LayoutParams.WRAP_CONTENT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+							checkboxparam
+									.addRule(RelativeLayout.ALIGN_PARENT_START);
+							checkboxlayout.setLayoutParams(checkboxparam);
+
+							layout.setLayoutParams(new TableRow.LayoutParams(
+									TableRow.LayoutParams.WRAP_CONTENT,
+									TableRow.LayoutParams.WRAP_CONTENT));
+
+							checkBox = new CheckBox(context);
+							checkBox.setText(array[i]);
+							checkBox.setTag("a" + i);
+							checkBox.setId(i);
+							checkBox.setChecked(check.getCheckValue("Problem",
+									i));
+							checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+									LinearLayout.LayoutParams.WRAP_CONTENT,
+									LinearLayout.LayoutParams.WRAP_CONTENT));
+
+							checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+								@Override
+								public void onCheckedChanged(
+										CompoundButton buttonView,
+										boolean isChecked) {
+									// change image in the text view
+									if (isChecked) {
+										check.setChecked(item,
+												(CheckBox) buttonView);
+										Drawable tick = getResources()
+												.getDrawable(R.drawable.tick);
+										item.setCompoundDrawablesWithIntrinsicBounds(
+												null, null, tick, null);
+
+									} else {
+
+										/* CHECK if all others are unchecked */
+										check.setUnchecked(item,
+												(CheckBox) buttonView);
+
+										/* Uncheck all substrategies */
+
+										/*
+										 * FOR THE SUBSTRATEGIES VISIBLE IN THE
+										 * VIEW RIGHT NOW
+										 */
+										ArrayList<View> views = getViewsByTag(
+												(ViewGroup) findViewById(R.id.subarealinearlayout),
+												"Problem" + buttonView.getId());
+										for (View view : views) {
+
+											if (view instanceof CheckBox) {
+												CheckBox cb = (CheckBox) view;
+												cb.setChecked(false); // uncheck
+
+												check.setSubstrategies(
+														cb.getId(), false);
+												// uncheck
+												// in
+												// logic
+
+											}
+										}
+
+										/* UNCHECK HIDDEN SUBSTRATEGIES */
+										List<Integer> tagged = check.subAreaTagMapping
+												.get("Problem"
+														+ buttonView.getId());
+										for (Integer i : tagged) {
+											check.substrategies[i] = false;
+										}
+
+										if (check.isAllUnchecked("Problem")) {
+											Drawable exclaim = getResources()
+													.getDrawable(
+															R.drawable.exclaim);
+											item.setCompoundDrawablesWithIntrinsicBounds(
+													null, null, exclaim, null);
+
+										}
+
+									}
+								}
+							});
+
+							Button sub = new Button(context);
+							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
+									40, 40);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam
+									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							sub.setLayoutParams(buttonparam);
+							sub.setBackground(getResources().getDrawable(
+									R.drawable.plusbuttondraw));
+
+							sub.setId(20 + i);
+							sub.setOnClickListener(new OnClickListener() {
+
+								@Override
+								public void onClick(View v) {
+
+									/* handle this substrategy(i) */
+									item.callOnClick();
+									int plusid = v.getId();
+									int checkBoxId = plusid - 20;
+
+									/* GET subStrategies from string.xml */
+									CharSequence subStrategies[] = getSubStrategies(
+											"Problem", checkBoxId);
+
+									/* GET TableRow for extracted subStrategies */
+									TableRow tr = getSubStrategyRow(
+											subStrategies, checkBoxId,
+											"Problem");
+
+									/* GET THE TABLE TO ADD ROW */
+									table = (TableLayout) findViewById(R.id.subareatable);
+
+									table.addView(tr, checkBoxId + 1);
+									isAnyActiveSubstrategy = false;
+
+								}
+
+							});
+
+							checkboxlayout.addView(checkBox);
+							layout.addView(checkboxlayout);
+							layout.addView(sub);
+
+							layout.setBackground(getResources().getDrawable(
+									R.drawable.checkback));
+							row.addView(layout);
+							table.addView(row, i);
+
+						}
+					}
+				});
+
+				views.add(layout);
+
+			}
+
+		}
+
+		return views;
+
+	}
+
 	/*
 	 * ==========================================================================
 	 * ======================================= /* MAIN LOGIC EXECUTION FOR
@@ -2595,8 +2576,8 @@ public class Strategies extends Activity {
 																// LONGER ONE)
 
 		// GET INFLATOR
-		//LayoutInflater inflater = (LayoutInflater) this
-			//	.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		// LayoutInflater inflater = (LayoutInflater) this
+		// .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		if (!selectedPhysical.isEmpty()) {
 			// TOOK IT ALL IN THE DIFFERENT METHOD
@@ -2613,39 +2594,37 @@ public class Strategies extends Activity {
 		}
 
 		v.setAdapter(merge);
-	//	final ListView copy = v;
-//		v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				Object clicked = copy.getAdapter().getItem(position);
-//
-//				if (clicked instanceof Layout) {
-//					Toast.makeText(context, "Layout :" + position,
-//							Toast.LENGTH_LONG).show();
-//				}
-//
-//				else {
-//
-//					Toast.makeText(context, "List Item" + position,
-//							Toast.LENGTH_LONG).show();
-//				}
-//
-//			}
-		//});
+		// final ListView copy = v;
+		// v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		// @Override
+		// public void onItemClick(AdapterView<?> parent, View view,
+		// int position, long id) {
+		// Object clicked = copy.getAdapter().getItem(position);
+		//
+		// if (clicked instanceof Layout) {
+		// Toast.makeText(context, "Layout :" + position,
+		// Toast.LENGTH_LONG).show();
+		// }
+		//
+		// else {
+		//
+		// Toast.makeText(context, "List Item" + position,
+		// Toast.LENGTH_LONG).show();
+		// }
+		//
+		// }
+		// });
 
-		Button b=(Button)findViewById(R.id.nextbuttonstrategieslandscape);
+		Button b = (Button) findViewById(R.id.nextbuttonstrategieslandscape);
 		b.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
-				new PdfBean().generatePDF(context,check);
-				
+				Toast.makeText(context, "Generating PDF Please Wait...", Toast.LENGTH_SHORT).show();
+				new PdfBean().generatePDF(context, check);
 			}
 		});
-		
-		
+
 	}
 
 	@Override
