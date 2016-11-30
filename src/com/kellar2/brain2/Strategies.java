@@ -12,7 +12,9 @@ import com.kellar.brain2.PdfBean;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -20,6 +22,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.widget.Space;
+import android.text.InputType;
 import android.util.Log;
 import android.view.*;
 import android.view.View.OnClickListener;
@@ -28,6 +31,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -41,6 +45,7 @@ public class Strategies extends Activity {
 	ArrayAdapter<View> viewadapter;
 	ArrayAdapter<View> subviewadapter;
 	TextView item;
+	String sid;
 	public static final String LOG_TAG = "BRAIN";
 	Context context;
 	MergeAdapter merge = new MergeAdapter();
@@ -73,8 +78,10 @@ public class Strategies extends Activity {
 		Log.d(Strategies.LOG_TAG, "Content view set");
 		initMap();
 		generateList();
-
+	
 	}
+
+	
 
 	private CharSequence[] getSubStrategies(String area, int checkBoxId) {
 

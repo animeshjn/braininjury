@@ -28,6 +28,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PdfBean {
@@ -83,8 +85,19 @@ public class PdfBean {
 					PageSize.A4.getHeight() - image.getScaledHeight());
 			PdfPCell imagelogocell = new PdfPCell(image, true);
 			table.addCell(imagelogocell);
-			setPdfContentString(check);
+			///summary 
 			
+			java.io.InputStream sum = activity.getAssets().open("summary.png");
+			Bitmap sumbmp = BitmapFactory.decodeStream(sum);
+			ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+			sumbmp.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+			Image sumimage = Image.getInstance(stream2.toByteArray());
+			sumimage.scaleToFit(document.getPageSize().getWidth(), 500);
+			sumimage.setAbsolutePosition(0,
+					PageSize.A4.getHeight() - image.getScaledHeight());
+			PdfPCell summarycell = new PdfPCell(sumimage, true);
+			table.addCell(summarycell);
+			setPdfContentString(check);
 //			for (PdfPCell cell : celllist) {
 //				table.addCell(cell);
 //			}

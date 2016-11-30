@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,12 +18,13 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class AreaOfConcern extends Activity {
 	private static Context context;
-	
+	String sid;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,8 +82,9 @@ public class AreaOfConcern extends Activity {
 			}
 		});
 		
+		inputId();
+
 		
-		Toast.makeText(context, "Choose an Area of Concern", Toast.LENGTH_SHORT).show();
 		
 		
 		
@@ -481,4 +484,30 @@ public class AreaOfConcern extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+public void inputId() {
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Student Id");
+		builder.setMessage("Please enter student id");
+		// Set up the input
+		final EditText input = new EditText(this);
+		// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+		input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+		builder.setView(input);
+		builder.setCancelable(false);
+		// Set up the buttons
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { 
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		         sid= input.getText().toString();
+		         dialog.dismiss();
+		         
+		         Toast.makeText(context,"Entered ID: "+sid,Toast.LENGTH_SHORT).show();
+		         Toast.makeText(context, "Choose an Area of Concern", Toast.LENGTH_SHORT).show();
+		    }
+		});
+		builder.show();
+	}
+
 }
