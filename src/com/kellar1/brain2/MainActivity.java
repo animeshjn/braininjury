@@ -2,6 +2,7 @@ package com.kellar1.brain2;
 
 import com.kellar2.brain2.R;
 import com.kellar2.brain2.AreaOfConcern;
+import com.kellar2.brain2.Start;
 
 import android.app.Activity;
 import android.content.Context;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void onFinish(){
                            //set the new Content of your activity
-                    	Intent intent = new Intent(context, AreaOfConcern.class);
+                    	Intent intent = new Intent(context, Start.class);
                     	 startActivity(intent);
                            //MainActivity.this.setContentView(R.layout.areaofconcernlandscape);
                     }

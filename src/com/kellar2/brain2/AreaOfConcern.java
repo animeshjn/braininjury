@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class AreaOfConcern extends Activity {
@@ -34,7 +35,7 @@ public class AreaOfConcern extends Activity {
 		//getActionBar().setDisplayHomeAsUpEnabled(true);
 	    
 		setContentView(R.layout.areaofconcernlandscape);
-		 //Toast.makeText(context, "test message 1", Toast.LENGTH_SHORT).show();
+		
 		 AreaOfConcern.context = AreaOfConcern.this;
 		
 		 setAllLongClickListeners();
@@ -80,7 +81,7 @@ public class AreaOfConcern extends Activity {
 		});
 		
 		
-		
+		Toast.makeText(context, "Choose an Area of Concern", Toast.LENGTH_SHORT).show();
 		
 		
 		

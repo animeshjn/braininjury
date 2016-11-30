@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,22 +31,21 @@ public class Start extends Activity {
 		context = this;
 
 		// infoAlert.show();
-		
 		Button start = (Button) findViewById(R.id.start);
-
 		start.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
-
+				
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
-				info.setMessage("message");
+				info.setTitle("Agreement");
+				info.setMessage("You Must Agree to the following to use this app:\n1.Loreum epsum plasd\n2.Loreum epsum plasd");
 				info.setCancelable(true);
-				info.setPositiveButton("OK",
+				info.setPositiveButton("Agree",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-
+								Intent intent = new Intent(context, AreaOfConcern.class);
+		                    	 startActivity(intent);
+		                    	 dialog.dismiss();
 							}
 						});
 

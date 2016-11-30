@@ -1,106 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/strategies"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/border2"
-    android:columnCount="1" >
+    android:orientation="vertical"
+    android:weightSum="100" >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:layout_weight="95"
+	android:padding="10dp"
+	android:layout_gravity="center_horizontal|center_vertical"
+	
+    android:weightSum="100" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:orientation="vertical" >
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/startlayoutpart1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="1" 
+        android:layout_weight="60"
+        android:background="@drawable/frame">
 
         <LinearLayout
             android:id="@+id/startlayoutheader1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+             android:layout_weight="0.2">
+
             <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/startlayoutpart1"
-        android:layout_marginBottom="71dp"
-        android:background="@drawable/framefilled"
-        
-        android:gravity="center"
-        android:text="@string/startheader"
-        android:textStyle="italic" />
-        </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/framefilled"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:text="@string/startheader"
+                android:textStyle="italic" />
 
-        <LinearLayout
-            android:id="@+id/startlayoutcontentspace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/startlayoutcontent1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+           	android:layout_weight="0.6"
             android:orientation="vertical" >
+			<Space android:layout_width="match_parent" android:layout_height="10dp"/>
+            <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
 
-            <ListView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@array/startstrategies"
+                android:layout_gravity="center_horizontal"
+                android:gravity="left"
+                android:text="@string/startstrategies"
                 android:textStyle="italic" >
-            </ListView>
+
+            </TextView>
+            </ScrollView>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/startlayoutfooter1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:layout_weight="0.2">
 
             <TextView
                 android:id="@+id/sources"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:text="@string/startfooter"
                 android:textSize="12sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/hospitallink1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:text="@string/hospitallink"
-                android:textColor="#0F4AAE"
+                android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
 
+    </LinearLayout>
+</LinearLayout>
+  
         <LinearLayout
             android:id="@+id/startlayoutbuttonarea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:layout_weight="5"
+            android:layout_gravity="center_horizontal"
+            >
 
             <Button
                 android:id="@+id/start"
                 android:layout_width="110dp"
-                android:layout_height="33dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal|bottom"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/start_button" />
+            
         </LinearLayout>
-    </LinearLayout>
-
-    
-
-</RelativeLayout>
+</LinearLayout>
