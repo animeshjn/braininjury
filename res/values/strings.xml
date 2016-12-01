@@ -599,6 +599,15 @@
                \t important and most immediate action following a concussion is to\n
                  \t reduce PHYSICAL, BEHAVIORAL and MENTAL activity.</item>
       </string>
+      <string name="startstrategiesexpanded">
+          <item>\n- A concussion is a type of traumatic brain injury\n\n
+              
+              - It takes a child/adolescent an average of 7 to 21 days \n
+                 \t to fully recover from a concussion.\n\n
+              -Because of the risk of further brain damage, the most\n
+               \t important and most immediate action following a concussion is to\n
+                 \t reduce PHYSICAL, BEHAVIORAL and MENTAL activity.</item>
+      </string>
           <string name="startfooter">
           <item>
              Sources: Rockingham County Public Schools: Report to Teachers, REAP Concussion Management Program\n
@@ -606,7 +615,17 @@
           </item>
       </string>
       
-      
+      <string name="agreement">
+          <item>
+               All users must adhere to the local school\n
+               Division \/ Agency policies and procedures to ensure the\n
+               protection of Confedentiality of personally identifiable\n
+               information of students\' scholastic records during the \n
+               collection, Storage, disclosure\n
+               and destruction of information.
+          </item>
+          
+      </string>
     <!-- MAP -->
     <string name="fatiguelayout"></string>
     <string name="sensorylayout"></string>

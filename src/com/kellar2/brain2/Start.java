@@ -37,8 +37,9 @@ public class Start extends Activity {
 			public void onClick(View v) {
 				
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
-				info.setTitle("Agreement");
-				info.setMessage("You Must Agree to the following to use this app:\n1.Loreum epsum plasd\n2.Loreum epsum plasd");
+				info.setTitle("\t\tConfedentiality Agreement");
+			
+				info.setMessage(getResources().getString(R.string.agreement).toString());
 				info.setCancelable(true);
 				info.setPositiveButton("Agree",
 						new DialogInterface.OnClickListener() {

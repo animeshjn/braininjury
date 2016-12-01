@@ -2,7 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-<TextView  android:layout_height="wrap_content" android:layout_width="match_parent"
-    android:id="@+id/listheader" android:tag="header" android:text="Physical" android:textColor="#ffffff" android:textSize="22sp" android:background="@drawable/framefilled"></TextView>
+
+    <TextView
+        android:id="@+id/listheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/framefilled"
+        android:tag="header"
+        android:text="Physical"
+        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="22sp" >
+    </TextView>
+
 </RelativeLayout>

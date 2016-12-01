@@ -78,10 +78,8 @@ public class Strategies extends Activity {
 		Log.d(Strategies.LOG_TAG, "Content view set");
 		initMap();
 		generateList();
-	
-	}
 
-	
+	}
 
 	private CharSequence[] getSubStrategies(String area, int checkBoxId) {
 
@@ -165,11 +163,11 @@ public class Strategies extends Activity {
 		// physical
 		areasLayouts.put("Fatigue", R.layout.fatigueheader);
 		areasLayouts.put("Sensory", R.layout.sensoryheader);
-		
+
 		// Behavioral
 		areasLayouts.put("Self", R.layout.selfmonitoring);
 		areasLayouts.put("Attention", R.layout.attentionheader);
-		
+
 		// Cognition
 		areasLayouts.put("Receptive", R.layout.receptiveheader);
 		areasLayouts.put("Expressive", R.layout.expressiveheader);
@@ -2627,7 +2625,8 @@ public class Strategies extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(context, "Generating PDF Please Wait...", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "Generating PDF Please Wait...",
+						Toast.LENGTH_SHORT).show();
 				new PdfBean().generatePDF(context, check);
 			}
 		});

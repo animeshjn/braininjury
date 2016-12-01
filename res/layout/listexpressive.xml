@@ -7,7 +7,7 @@
         android:id="@+id/listexpressive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Expressive"
+        android:text="Expressive Communication"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:tag="header" >

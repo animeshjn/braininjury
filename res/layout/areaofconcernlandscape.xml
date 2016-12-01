@@ -61,7 +61,7 @@
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:text="Physical"
-               
+               	android:paddingLeft="5dp"
                 android:textColor="#ffffff"/>
 
             <LinearLayout
@@ -135,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/framefilled"
                 android:gravity="center"
+                android:paddingLeft="5dp"
                 android:text="Behavioral / Social"
                 android:textColor="#ffffff" />
 
