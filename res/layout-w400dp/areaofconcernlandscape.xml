@@ -30,12 +30,7 @@
         android:gravity="center"
         android:orientation="vertical" >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Select an Area of Concern"
-            android:textStyle="italic" />
+        
     </LinearLayout>
 
     <LinearLayout
@@ -314,10 +309,12 @@
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        android:gravity="center"
+                        
                         android:textColor="#ffffff"
                         android:textOff="Speed of Information processing"
-                        android:textOn="Speed of Information processing" />
+                        android:textOn="Speed of Information processing" 
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textAlignment="center"/>
 
                     <Space
                         android:layout_width="wrap_content"
@@ -330,10 +327,12 @@
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        android:gravity="center"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textOff="Planning / Organizing"
-                        android:textOn="Planning / Organizing" />
+                        android:textOn="Planning / Organizing" 
+                        />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -381,13 +380,13 @@
 
                     <ToggleButton
                         android:id="@+id/memory"
-                        android:layout_width="115dp"
+                        android:layout_width="128dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        android:gravity="center_vertical"
-                        android:padding="2dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textOff="Memory"
                         android:textOn="Memory" />
@@ -446,7 +445,8 @@
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        android:gravity="center"
+                       android:gravity="center_vertical|center_horizontal"
+                        android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textOff="Problem Solving"
                         android:textOn="Problem Solving" />

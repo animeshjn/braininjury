@@ -29,13 +29,6 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:orientation="vertical" >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Select an Area of Concern"
-            android:textStyle="italic" />
     </LinearLayout>
 
     <LinearLayout

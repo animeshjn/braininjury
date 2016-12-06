@@ -24,6 +24,35 @@ public class CheckHandle {
 	boolean strategies[][] = new boolean[15][150]; // considering default to
 	public boolean substrategies[] = new boolean[200];
 	boolean firstSubflags[] = new boolean[25];
+	boolean comments[]=new boolean[12];
+	String commentText[]= new String[12];
+		
+	public boolean getComments(int index) {
+		return comments[index];
+	}
+
+	public void setComments(boolean comments, int index) {
+		this.comments[index] = comments;
+	}
+
+	public String getCommentText(int index) {
+		return commentText[index];
+	}
+
+	public void setCommentText(String commentText, int index) {
+		this.commentText[index] = commentText;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	public Map<String, List<Integer>> subAreaTagMapping = new HashMap<String, List<Integer>>();
 	@SuppressLint("UseSparseArrays") 
 	public Map<Integer, CharSequence> subStrategyMapping = new HashMap<Integer, CharSequence>();
@@ -1215,6 +1244,14 @@ public class CheckHandle {
 	
 	
 	
+	public Map<Integer, CharSequence> getSubStrategyMapping() {
+		return subStrategyMapping;
+	}
+
+	public void setSubStrategyMapping(Map<Integer, CharSequence> subStrategyMapping) {
+		this.subStrategyMapping = subStrategyMapping;
+	}
+
 	public void setStrategies(boolean[][] strategies) {
 		this.strategies = strategies;
 	}

@@ -3,7 +3,14 @@ package com.kellar.brain2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
+
+
+
+
+
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
@@ -18,26 +25,52 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEvent;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.kellar2.brain2.R;
+
+
+
+
+
+
+
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class PdfBean {
+public class PdfBean  implements Runnable {
 
 	static ArrayList<Paragraph> plist = new ArrayList<Paragraph>();
 	PdfPTable table = new PdfPTable(1);
 	Font headfont;
 	ArrayList<PdfPCell> celllist = new ArrayList<PdfPCell>();
+	String sid;
+	Context context;
+	CheckHandle check;
+	
+	
+	public Context getContext() {
+		return context;
+	}
+
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
+	public CheckHandle getCheck() {
+		return check;
+	}
+
+	public void setCheck(CheckHandle check) {
+		this.check = check;
+	}
 
 	public void initFonts() {
 		Font f = new Font(FontFamily.HELVETICA, 14, Font.NORMAL, BaseColor.RED);
@@ -97,6 +130,116 @@ public class PdfBean {
 					PageSize.A4.getHeight() - image.getScaledHeight());
 			PdfPCell summarycell = new PdfPCell(sumimage, true);
 			table.addCell(summarycell);
+			
+			
+			
+			SharedPreferences sharedpreferences = activity.getSharedPreferences(
+					"BrainPreferences", Context.MODE_PRIVATE);
+			sid=sharedpreferences.getString("student", null);
+			
+			Phrase phrase = new Phrase();
+			phrase.add(
+			    new Chunk("Student ID: "+sid+"              "
+			    		+ "                   "+Calendar.getInstance().getTime(),  new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD,BaseColor.RED))
+			);
+		
+			PdfPCell student = new PdfPCell(phrase);
+			student.setBorder(0);
+			
+			document.top();
+			table.addCell(student);
+			
+			
+			
+			writer.setPageEvent(new PdfPageEvent() {
+				
+				@Override
+				public void onStartPage(PdfWriter arg0, Document document) {
+						{
+							Log.d("Brain", "start page event");
+							Phrase phrase = new Phrase();
+							phrase.add(
+							    new Chunk("Student ID: "+sid+"                      "
+							    		+ "   "+Calendar.getInstance().getTime(),  new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD,BaseColor.RED))
+							);
+							PdfPCell student = new PdfPCell(phrase);
+							student.setBorder(0);
+							document.top();
+							table.addCell(student);
+						}
+					
+				}
+
+				@Override
+				public void onChapter(PdfWriter arg0, Document arg1,
+						float arg2, Paragraph arg3) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onChapterEnd(PdfWriter arg0, Document arg1,
+						float arg2) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onCloseDocument(PdfWriter arg0, Document arg1) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onEndPage(PdfWriter arg0, Document arg1) {
+					// TODO ADD FOOTER
+					
+					
+				}
+
+				@Override
+				public void onGenericTag(PdfWriter arg0, Document arg1,
+						Rectangle arg2, String arg3) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onOpenDocument(PdfWriter arg0, Document arg1) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onParagraph(PdfWriter arg0, Document arg1,
+						float arg2) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onParagraphEnd(PdfWriter arg0, Document arg1,
+						float arg2) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onSection(PdfWriter arg0, Document arg1,
+						float arg2, int arg3, Paragraph arg4) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onSectionEnd(PdfWriter arg0, Document arg1,
+						float arg2) {
+					// TODO Auto-generated method stub
+					
+				}}
+			
+				);
+			
 			setPdfContentString(check);
 //			for (PdfPCell cell : celllist) {
 //				table.addCell(cell);
@@ -169,12 +312,11 @@ public class PdfBean {
 					catch(Exception e){e.printStackTrace();}
 					
 					}
-					strategy = check.getStrategy(i, j);
-					strategy = "\u2022   " + strategy;
-					Paragraph p = new Paragraph();
-					p.setIndentationLeft(8);
-					p.add(strategy);
-					plist.add(p);
+					strategy = check.getStrategy(i, j).replace("\n", " ");
+					strategy = "\u2022   " + formatString(strategy);
+					Chunk p = new Chunk(strategy);
+					
+					//plist.add(p);
 					PdfPCell subcell = new PdfPCell();
 					subcell.addElement(p);
 					subcell.setVerticalAlignment(Element.ALIGN_BOTTOM);
@@ -190,7 +332,7 @@ public class PdfBean {
 							CharSequence sub = check.subStrategyMapping
 									.get(integer);
 							Paragraph subpara = new Paragraph();
-							subpara.add(new String("-" + sub));
+							subpara.add(new String("-" + sub).replace("\n", " "));
 							subpara.setIndentationLeft(15);
 							Log.d("Brain", "SUB :" + sub);
 							plist.add(subpara);
@@ -206,5 +348,46 @@ public class PdfBean {
 				}
 			}
 		}
+	
+	
+	
 	}
+	public void addPDFHeader()
+	{
+		//TODO add PDF header
+		
+//		PdfCanvas canvas = new PdfCanvas(pdfDoc.getFirstPage());
+//		canvas.beginText().setFontAndSize(
+//		        PdfFontFactory.createFont(FontConstants.HELVETICA), 12)
+//		        .moveText(265, 597)
+//		        .showText("I agree to the terms and conditions.")
+//		        .endText();
+		
+	}
+
+	@Override
+	public void run() {
+		generatePDF(context, check);
+		
+	}
+
+	
+	public String formatString(String string)
+	{
+		String words[]=string.split("\\s+");
+		String s="";
+		for (int i = 0; i < words.length; i++){
+			s+=words[i]+" ";
+			if(s.length()+5>=PageSize.A4.getWidth())
+				s+="\n\t";
+		}
+		
+		return s;
+	}
+	
+	
+	
+	
+	
+	
 }

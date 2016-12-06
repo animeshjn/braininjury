@@ -99,6 +99,8 @@
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:text="@string/hospitallink"
+                android:linksClickable="true"
+                android:autoLink="web"
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>

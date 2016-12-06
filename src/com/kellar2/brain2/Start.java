@@ -17,41 +17,45 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Start extends Activity {
 	private static Context context;
-
+	int backButtonCount=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		getActionBar().hide();
+		
 		setContentView(R.layout.activity_start);
+		
 		context = this;
 
+		AlertDialog.Builder info = new AlertDialog.Builder(context);
+		info.setTitle("\t\tConfidentiality Agreement");
+	
+		info.setMessage(getResources().getString(R.string.agreement).toString());
+		info.setCancelable(true);
+		info.setPositiveButton("Agree",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						
+                    	 dialog.dismiss();
+					}
+				});
+
+		 AlertDialog infoAlert = info.create();
+			infoAlert.show();
 		// infoAlert.show();
 		Button start = (Button) findViewById(R.id.start);
 		start.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Intent intent = new Intent(context, AreaOfConcern.class);
+           	 startActivity(intent);
 				
-				AlertDialog.Builder info = new AlertDialog.Builder(context);
-				info.setTitle("\t\tConfedentiality Agreement");
-			
-				info.setMessage(getResources().getString(R.string.agreement).toString());
-				info.setCancelable(true);
-				info.setPositiveButton("Agree",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								Intent intent = new Intent(context, AreaOfConcern.class);
-		                    	 startActivity(intent);
-		                    	 dialog.dismiss();
-							}
-						});
-
-				 AlertDialog infoAlert = info.create();
-					infoAlert.show();
 			}
 		});
 	}
@@ -74,4 +78,22 @@ public class Start extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed()
+	{
+	    if(backButtonCount >= 1)
+	    {
+	        Intent intent = new Intent(Intent.ACTION_MAIN);
+	        intent.addCategory(Intent.CATEGORY_HOME);
+	        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	        startActivity(intent);
+	    }
+	    else
+	    {
+	        Toast.makeText(this, "Press the back button once again to close the application.", Toast.LENGTH_SHORT).show();
+	        backButtonCount++;
+	    }
+	}
+	
 }

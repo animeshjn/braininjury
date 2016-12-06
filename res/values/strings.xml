@@ -165,7 +165,7 @@
         <item>Encourage turn taking in conversations</item>
         <item>Use a variety of techniques to remember needed behaviors.</item>
         <item>Provide feedback promptly and in a respectful manner when errors occur</item>
-         <item>Teach the student to repeat or re-explain directions in his/her own words to increase understanding</item>
+         <item>Teach the student to repeat or re-explain directions in his/her own words\n\t\t to increase understanding</item>
          <item>Create and use signals to let him/her know when he/she is talking too much</item>
          <item>Teach student how to use class and individual schedules</item>
          <item>Teaching Coping Strategies</item>
@@ -180,11 +180,11 @@
         <item>Use memory tricks such as mnemonics, phrases or acronyms\n
             (SLANT- Sit up, Lean Forward, Ask Questions, Nod head, Track Teacher)</item>
         <item>Rehearse new routines and procedures</item>
-        <item>Create a predetermined signal for student to use \n when ready to answer a question or present in front of the class</item>
+        <item>Create a predetermined signal for student to use \n when ready to answer a\n question or present in front of the class</item>
         <item>Encourage the use of lists, schedules, assignment sheet or planner</item>
         </string-array>
     <string-array name="selfsub2">
-        <item>Evaluate each step for effectiveness and \n discuss what went well and what needs to be done differently.</item>
+        <item>Evaluate each step for effectiveness and \n discuss what went well and what needs to be\n done differently.</item>
         
     </string-array>
     <string-array name="selfsub3">
@@ -216,7 +216,7 @@
     <string-array name="attentionstrategies">
         <item>Use short and specific instructions on assignments</item>
         <item>Remove/reduce unnecessary distractions in the classroom</item>
-        <item>Make use of color coding and underlining to focus \n attention on important points</item>
+        <item>Make use of color coding and underlining to focus \n\t\t attention on important points</item>
         <item>Use visual/verbal cues to redirect student\’s attention</item>
         <item>Teach self-monitoring techniques</item>
     </string-array>
@@ -619,10 +619,9 @@
           <item>
                All users must adhere to the local school\n
                Division \/ Agency policies and procedures to ensure the\n
-               protection of Confedentiality of personally identifiable\n
+               protection of Confidentiality of personally identifiable\n
                information of students\' scholastic records during the \n
-               collection, Storage, disclosure\n
-               and destruction of information.
+               collection, Storage, disclosure and destruction of information.
           </item>
           
       </string>
