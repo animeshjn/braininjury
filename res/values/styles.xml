@@ -12,9 +12,15 @@
         -->
     </style>
 
-   
+    <!-- Application theme.  <style name="Widget.Holo.Light.CompoundButton.CheckBox" parent="Widget.CompoundButton.CheckBox" />
 
-       
+    <style name="Widget.Holo.CompoundButton.CheckBox" parent="Widget.CompoundButton.CheckBox" />
+-->
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:listViewStyle">@style/TransparentListView</item>
+    </style>
 
     <style name="TransparentListView" parent="@android:style/Widget.ListView">
         <item name="android:cacheColorHint">@android:color/transparent</item>
