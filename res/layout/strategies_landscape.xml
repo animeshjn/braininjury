@@ -104,16 +104,16 @@
                 </TableLayout>
                 </ScrollView>
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/commentslayoutview"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom|clip_horizontal"
-                android:id="@+id/commentslayoutview"
-               	android:background="#44F9F9F9"
+                android:background="#44F9F9F9"
                 android:gravity="bottom"
-                android:orientation="horizontal" 
-                >
+                android:orientation="horizontal" >
 
                 <Space
                     android:layout_width="10dp"
@@ -131,7 +131,8 @@
                     android:id="@+id/comments"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Optional" 
+                    android:hint="Optional"
+                    android:imeActionLabel="Save" 
                     android:imeOptions="actionDone"
                     android:cursorVisible="false"
                     />

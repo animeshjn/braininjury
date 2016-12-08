@@ -24,8 +24,8 @@ public class CheckHandle {
 	boolean strategies[][] = new boolean[15][150]; // considering default to
 	public boolean substrategies[] = new boolean[200];
 	boolean firstSubflags[] = new boolean[25];
-	boolean comments[]=new boolean[12];
-	String commentText[]= new String[12];
+	boolean comments[]=new boolean[15];
+	String commentText[]= new String[15];
 		
 	public boolean getComments(int index) {
 		return comments[index];
@@ -42,16 +42,6 @@ public class CheckHandle {
 	public void setCommentText(String commentText, int index) {
 		this.commentText[index] = commentText;
 	}
-
-
-
-
-
-
-
-
-
-
 
 	public Map<String, List<Integer>> subAreaTagMapping = new HashMap<String, List<Integer>>();
 	@SuppressLint("UseSparseArrays") 
@@ -70,7 +60,7 @@ public class CheckHandle {
 			Arrays.fill(firstSubflags, Boolean.TRUE);
 
 		}
-		
+		Arrays.fill(comments, Boolean.FALSE);
 		initMap();
 		Arrays.fill(substrategies, Boolean.FALSE);
 
@@ -116,7 +106,7 @@ public class CheckHandle {
 		// sensory
 		// Sensory0
 		ArrayList<Integer> sensory0 = new ArrayList<Integer>();
-		for (int i = 9; i <= 14; i++) {
+		for (int i = 9; i <= 13; i++) {
 			sensory0.add(i);
 		}
 
@@ -124,7 +114,7 @@ public class CheckHandle {
 
 		// Sensory1
 		ArrayList<Integer> sensory1 = new ArrayList<Integer>();
-		for (int i = 15; i <= 19; i++) {
+		for (int i = 14; i <= 19; i++) {
 			sensory1.add(i);
 		}
 
@@ -200,7 +190,7 @@ public class CheckHandle {
 
 		// Attention0
 		ArrayList<Integer> attention0 = new ArrayList<Integer>();
-		for (int i = 38; i <= 39; i++) {
+		for (int i = 40; i <= 41; i++) {
 			attention0.add(i);
 		}
 
@@ -208,7 +198,7 @@ public class CheckHandle {
 
 		// Attention1
 		ArrayList<Integer> attention1 = new ArrayList<Integer>();
-		for (int i = 40; i <= 43; i++) {
+		for (int i = 42; i <= 45; i++) {
 			attention1.add(i);
 		}
 
@@ -216,7 +206,7 @@ public class CheckHandle {
 
 		// Attention2
 		ArrayList<Integer> attention2 = new ArrayList<Integer>();
-		for (int i = 44; i <= 44; i++) {
+		for (int i = 46; i <= 46; i++) {
 			attention2.add(i);
 		}
 
@@ -224,7 +214,7 @@ public class CheckHandle {
 
 		// Attention3
 		ArrayList<Integer> attention3 = new ArrayList<Integer>();
-		for (int i = 45; i <= 46; i++) {
+		for (int i = 47; i <= 48; i++) {
 			attention3.add(i);
 		}
 
@@ -232,7 +222,7 @@ public class CheckHandle {
 
 		// Attention4
 		ArrayList<Integer> attention4 = new ArrayList<Integer>();
-		for (int i = 47; i <= 48; i++) {
+		for (int i = 49; i <= 50; i++) {
 			attention4.add(i);
 		}
 
@@ -243,35 +233,35 @@ public class CheckHandle {
 
 		// Receptive0
 		ArrayList<Integer> receptive0 = new ArrayList<Integer>();
-		for (int i = 49; i <= 52; i++) {
+		for (int i = 51; i <= 54; i++) {
 			receptive0.add(i);
 		}
 		subAreaTagMapping.put("Receptive0", receptive0);
 
 		// Receptive1
 		ArrayList<Integer> receptive1 = new ArrayList<Integer>();
-		for (int i = 53; i <= 58; i++) {
+		for (int i = 55; i <= 60; i++) {
 			receptive1.add(i);
 		}
 		subAreaTagMapping.put("Receptive1", receptive1);
 
 		// Receptive2
 		ArrayList<Integer> receptive2 = new ArrayList<Integer>();
-		for (int i = 59; i <= 63; i++) {
+		for (int i = 61; i <= 65; i++) {
 			receptive2.add(i);
 		}
 		subAreaTagMapping.put("Receptive2", receptive2);
 
 		// Receptive3
 		ArrayList<Integer> receptive3 = new ArrayList<Integer>();
-		for (int i = 64; i <= 65; i++) {
+		for (int i = 66; i <= 67; i++) {
 			receptive3.add(i);
 		}
 		subAreaTagMapping.put("Receptive3", receptive3);
 
 		// Receptive4
 		ArrayList<Integer> receptive4 = new ArrayList<Integer>();
-		for (int i = 66; i <= 71; i++) {
+		for (int i = 68; i <= 73; i++) {
 			receptive4.add(i);
 		}
 		subAreaTagMapping.put("Receptive4", receptive4);
@@ -281,21 +271,21 @@ public class CheckHandle {
 
 		// Expressive0
 		ArrayList<Integer> expressive0 = new ArrayList<Integer>();
-		for (int i = 72; i <= 74; i++) {
+		for (int i = 74; i <= 76; i++) {
 			expressive0.add(i);
 		}
 		subAreaTagMapping.put("Expressive0", expressive0);
 
 		// Expressive1
 		ArrayList<Integer> expressive1 = new ArrayList<Integer>();
-		for (int i = 75; i <= 76; i++) {
+		for (int i = 77; i <= 78; i++) {
 			expressive1.add(i);
 		}
 		subAreaTagMapping.put("Expressive1", expressive1);
 
 		// Expressive2
 		ArrayList<Integer> expressive2 = new ArrayList<Integer>();
-		for (int i = 77; i <= 79; i++) {
+		for (int i = 79; i <= 81; i++) {
 			expressive2.add(i);
 		}
 		subAreaTagMapping.put("Expressive2", expressive2);
@@ -305,157 +295,159 @@ public class CheckHandle {
 
 		// Speed0
 		ArrayList<Integer> speed0 = new ArrayList<Integer>();
-		for (int i = 80; i <= 81; i++) {
+		for (int i = 82; i <= 83; i++) {
 			speed0.add(i);
 		}
 		subAreaTagMapping.put("Speed0", speed0);
 
 		// Speed1
 		ArrayList<Integer> speed1 = new ArrayList<Integer>();
-		for (int i = 82; i <= 83; i++) {
+		for (int i = 84; i <= 85; i++) {
 			speed1.add(i);
 		}
 		subAreaTagMapping.put("Speed1", speed1);
 
 		// Speed2
 		ArrayList<Integer> speed2 = new ArrayList<Integer>();
-		for (int i = 84; i <= 84; i++) {
+		for (int i = 86; i <= 86; i++) {
 			speed2.add(i);
 		}
 		subAreaTagMapping.put("Speed2", speed2);
 
 		// Speed3
 		ArrayList<Integer> speed3 = new ArrayList<Integer>();
-		for (int i = 85; i <= 90; i++) {
+		for (int i = 87; i <= 92; i++) {
 			speed3.add(i);
 		}
 		subAreaTagMapping.put("Speed3", speed3);
 
 		// Speed4
 		ArrayList<Integer> speed4 = new ArrayList<Integer>();
-		for (int i = 91; i <= 94; i++) {
+		for (int i = 93; i <= 96; i++) {
 			speed4.add(i);
 		}
 		subAreaTagMapping.put("Speed4", speed4);
 
 		// Speed5
 		ArrayList<Integer> speed5 = new ArrayList<Integer>();
-		for (int i = 95; i <= 99; i++) {
+		for (int i = 97; i <= 101; i++) {
 			speed5.add(i);
 		}
 		subAreaTagMapping.put("Speed5", speed5);
+
+		
+		// MEMORY//
+				// -------------------------------------------------------------------------------------//
+
+				// Memory0
+				ArrayList<Integer> memory0 = new ArrayList<Integer>();
+				for (int i = 102; i <= 104; i++) {
+					memory0.add(i);
+				}
+				subAreaTagMapping.put("Memory0", memory0);
+
+				// Memory1
+				ArrayList<Integer> memory1 = new ArrayList<Integer>();
+				for (int i = 105; i <= 107; i++) {
+					memory1.add(i);
+				}
+				subAreaTagMapping.put("Memory1", memory1);
+
+				// Memory2
+				ArrayList<Integer> memory2 = new ArrayList<Integer>();
+				for (int i = 108; i <= 114; i++) {
+					memory2.add(i);
+				}
+				subAreaTagMapping.put("Memory2", memory2);
+
+				// REASONING//
+				// -------------------------------------------------------------------------------------//
+
+				// Reasoning0
+				ArrayList<Integer> reasoning0 = new ArrayList<Integer>();
+				for (int i = 115; i <= 116; i++) {
+					reasoning0.add(i);
+				}
+				subAreaTagMapping.put("Reasoning0", reasoning0);
+
+				// Reasoning1
+				ArrayList<Integer> reasoning1 = new ArrayList<Integer>();
+				for (int i = 117; i <= 119; i++) {
+					reasoning1.add(i);
+				}
+				subAreaTagMapping.put("Reasoning1", reasoning1);
+
+				// Reasoning2
+				ArrayList<Integer> reasoning2 = new ArrayList<Integer>();
+				for (int i = 120; i <= 121; i++) {
+					reasoning2.add(i);
+				}
+				subAreaTagMapping.put("Reasoning2", reasoning2);
+
+				// Reasoning3
+				ArrayList<Integer> reasoning3 = new ArrayList<Integer>();
+				for (int i = 122; i <= 125; i++) {
+					reasoning3.add(i);
+				}
+				subAreaTagMapping.put("Reasoning3", reasoning3);
 
 		// Planning//
 		// -------------------------------------------------------------------------------------//
 		// Planning0
 		ArrayList<Integer> planning0 = new ArrayList<Integer>();
-		for (int i = 100; i <= 101; i++) {
+		for (int i = 126; i <= 127; i++) {
 			planning0.add(i);
 		}
 		subAreaTagMapping.put("Planning0", planning0);
 		// Planning1
 		ArrayList<Integer> planning1 = new ArrayList<Integer>();
-		for (int i = 102; i <= 103; i++) {
+		for (int i = 128; i <= 129; i++) {
 			planning1.add(i);
 		}
 		subAreaTagMapping.put("Planning1", planning1);
 
 		// Planning2
 		ArrayList<Integer> planning2 = new ArrayList<Integer>();
-		for (int i = 104; i <= 108; i++) {
+		for (int i = 130; i <= 134; i++) {
 			planning2.add(i);
 		}
 		subAreaTagMapping.put("Planning2", planning2);
 
-		// MEMORY//
-		// -------------------------------------------------------------------------------------//
-
-		// Memory0
-		ArrayList<Integer> memory0 = new ArrayList<Integer>();
-		for (int i = 109; i <= 111; i++) {
-			memory0.add(i);
-		}
-		subAreaTagMapping.put("Memory0", memory0);
-
-		// Memory1
-		ArrayList<Integer> memory1 = new ArrayList<Integer>();
-		for (int i = 112; i <= 114; i++) {
-			memory1.add(i);
-		}
-		subAreaTagMapping.put("Memory1", memory1);
-
-		// Memory2
-		ArrayList<Integer> memory2 = new ArrayList<Integer>();
-		for (int i = 115; i <= 121; i++) {
-			memory2.add(i);
-		}
-		subAreaTagMapping.put("Memory2", memory2);
-
-		// REASONING//
-		// -------------------------------------------------------------------------------------//
-
-		// Reasoning0
-		ArrayList<Integer> reasoning0 = new ArrayList<Integer>();
-		for (int i = 122; i <= 123; i++) {
-			reasoning0.add(i);
-		}
-		subAreaTagMapping.put("Reasoning0", reasoning0);
-
-		// Reasoning1
-		ArrayList<Integer> reasoning1 = new ArrayList<Integer>();
-		for (int i = 124; i <= 126; i++) {
-			reasoning1.add(i);
-		}
-		subAreaTagMapping.put("Reasoning1", reasoning1);
-
-		// Reasoning2
-		ArrayList<Integer> reasoning2 = new ArrayList<Integer>();
-		for (int i = 127; i <= 128; i++) {
-			reasoning2.add(i);
-		}
-		subAreaTagMapping.put("Reasoning2", reasoning2);
-
-		// Reasoning3
-		ArrayList<Integer> reasoning3 = new ArrayList<Integer>();
-		for (int i = 129; i <= 132; i++) {
-			reasoning3.add(i);
-		}
-		subAreaTagMapping.put("Reasoning3", reasoning3);
-
+		
 		// PROBLEM SOLVING //
 		// -------------------------------------------------------------------------------------//
 
 		// Problem0
 		ArrayList<Integer> problem0 = new ArrayList<Integer>();
-		for (int i = 133; i <= 137; i++) {
+		for (int i = 135; i <= 139; i++) {
 			problem0.add(i);
 		}
 		subAreaTagMapping.put("Problem0", problem0);
 
 		// Problem1
 		ArrayList<Integer> problem1 = new ArrayList<Integer>();
-		for (int i = 138; i <= 139; i++) {
+		for (int i = 140; i <= 141; i++) {
 			problem1.add(i);
 		}
 		subAreaTagMapping.put("Problem1", problem1);
 
 		// Problem2
 		ArrayList<Integer> problem2 = new ArrayList<Integer>();
-		for (int i = 140; i <= 141; i++) {
+		for (int i = 142; i <= 143; i++) {
 			problem2.add(i);
 		}
 		subAreaTagMapping.put("Problem2", problem2);
 
 		// Problem3
 		ArrayList<Integer> problem3 = new ArrayList<Integer>();
-		for (int i = 142; i <= 142; i++) {
+		for (int i = 144; i <= 144; i++) {
 			problem3.add(i);
 		}
 		subAreaTagMapping.put("Problem3", problem3);
 
 		// Problem4
 		ArrayList<Integer> problem4 = new ArrayList<Integer>();
-		for (int i = 143; i <= 145; i++) {
+		for (int i = 145; i <= 147; i++) {
 			problem4.add(i);
 		}
 		subAreaTagMapping.put("Problem4", problem4);
@@ -557,20 +549,20 @@ public class CheckHandle {
 
 			switch (strategyId) { // 3 strategies for this case
 			case 0:
-				adjustment = 38;
-				break;
-			case 1:
 				adjustment = 40;
 				break;
+			case 1:
+				adjustment = 42;
+				break;
 			case 2:
-				adjustment = 44;
+				adjustment = 46;
 				break;
 
 			case 3:
-				adjustment = 45;
+				adjustment = 47;
 				break;
 			case 4:
-				adjustment = 47;
+				adjustment = 49;
 				break;
 
 			}
@@ -580,20 +572,20 @@ public class CheckHandle {
 
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 49;
+				adjustment = 51;
 				break;
 			case 1:
-				adjustment = 53;
+				adjustment = 55;
 				break;
 			case 2:
-				adjustment = 59;
+				adjustment = 61;
 				break;
 
 			case 3:
-				adjustment = 64;
+				adjustment = 66;
 				break;
 			case 4:
-				adjustment = 66;
+				adjustment = 68;
 				break;
 
 			}
@@ -602,13 +594,13 @@ public class CheckHandle {
 
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 72;
+				adjustment = 74;
 				break;
 			case 1:
-				adjustment = 75;
+				adjustment = 77;
 				break;
 			case 2:
-				adjustment = 77;
+				adjustment = 79;
 				break;
 
 			}
@@ -617,22 +609,22 @@ public class CheckHandle {
 		case 6:// Speed of information processing
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 80;
-				break;
-			case 1:
 				adjustment = 82;
 				break;
-			case 2:
+			case 1:
 				adjustment = 84;
 				break;
+			case 2:
+				adjustment = 86;
+				break;
 			case 3:
-				adjustment = 85;
+				adjustment = 87;
 				break;
 			case 4:
-				adjustment = 91;
+				adjustment = 93;
 				break;
 			case 5:
-				adjustment = 95;
+				adjustment = 97;
 				break;
 
 			}
@@ -640,13 +632,13 @@ public class CheckHandle {
 		case 7:// Planning
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 100;
+				adjustment = 126;
 				break;
 			case 1:
-				adjustment = 102;
+				adjustment = 128;
 				break;
 			case 2:
-				adjustment = 104;
+				adjustment = 130;
 				break;
 
 			}
@@ -655,13 +647,13 @@ public class CheckHandle {
 		case 8:// Memory
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 109;
+				adjustment = 102;
 				break;
 			case 1:
-				adjustment = 111;
+				adjustment = 105;
 				break;
 			case 2:
-				adjustment = 115;
+				adjustment = 108;
 				break;
 
 			}
@@ -669,17 +661,17 @@ public class CheckHandle {
 		case 9:// Reasoning
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 122;
+				adjustment = 115;
 				break;
 			case 1:
-				adjustment = 124;
+				adjustment = 117;
 				break;
 			case 2:
-				adjustment = 127;
+				adjustment = 120;
 				break;
 
 			case 3:
-				adjustment = 129;
+				adjustment = 122;
 				break;
 
 			}
@@ -688,21 +680,21 @@ public class CheckHandle {
 		case 10:// Problem Solving
 			switch (strategyId) { // strategies for this case
 			case 0:
-				adjustment = 133;
+				adjustment = 135;
 				break;
 			case 1:
-				adjustment = 138;
-				break;
-			case 2:
 				adjustment = 140;
 				break;
-
-			case 3:
+			case 2:
 				adjustment = 142;
 				break;
 
+			case 3:
+				adjustment = 144;
+				break;
+
 			case 4:
-				adjustment = 143;
+				adjustment = 145;
 				break;
 
 			}

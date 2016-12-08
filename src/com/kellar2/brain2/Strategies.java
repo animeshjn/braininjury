@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -258,9 +259,7 @@ public class Strategies extends Activity {
 
 					} else {
 						check.setSubstrategies(buttonView.getId(), false);
-
 					}
-
 				}
 			});
 			sublayout.setBackground(getResources().getDrawable(
@@ -2680,9 +2679,32 @@ public class Strategies extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_home) {
+			//alert 
+			//start
+			//
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Are you Sure?");
+			builder.setMessage("Do you wish to go back to home?");
+			builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Intent intent = new Intent(context, Start.class);
+               	 	startActivity(intent);
+					
+				}
+			});
+			
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+					
+				}
+			});
+			builder.create();
+			builder.show();
 			return true;
-
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -2740,7 +2762,7 @@ public class Strategies extends Activity {
 		RelativeLayout rl = (RelativeLayout) tt;
 		TextView tc = (TextView) rl.getChildAt(0);
 		tc.callOnClick();
-		Drawable d[] = tc.getCompoundDrawables();
+		//Drawable d[] = tc.getCompoundDrawables();
 
 	}
 
@@ -2784,7 +2806,7 @@ public class Strategies extends Activity {
 		final int index=i;
 		EditText editText =((EditText) findViewById(R.id.comments));
 		editText.setSingleLine(true);
-		  editText.setLines(5);
+		  editText.setLines(4);
 		  editText.setHorizontallyScrolling(false);
 		  editText.setText(check.getCommentText(index));
 		
@@ -2792,7 +2814,7 @@ public class Strategies extends Activity {
 					@Override
 					public boolean onEditorAction(TextView v, int actionId,
 							KeyEvent event) {
-						String rightDraw;
+						//String rightDraw;
 
 						if (actionId == EditorInfo.IME_ACTION_SEARCH
 								|| actionId == EditorInfo.IME_ACTION_DONE
@@ -2829,7 +2851,7 @@ public class Strategies extends Activity {
 					public void onClick(View v) {
 						//TODO
 //						Toast.makeText(context,
-//								"Press Enter to complete Comment",
+//								"Press enter to save the comment",
 //								Toast.LENGTH_SHORT).show();
 					}
 				});
@@ -2838,9 +2860,11 @@ public class Strategies extends Activity {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				// TODO Auto-generated method stub
-				if(hasFocus)
+				EditText ed= (EditText)v;
+				
+				if(hasFocus&&ed.isInEditMode())
 					Toast.makeText(context,
-							"Press Enter to complete Comment",
+							"Press Enter to save Comment",
 							Toast.LENGTH_SHORT).show();
 			}
 		});

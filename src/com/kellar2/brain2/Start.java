@@ -38,6 +38,7 @@ public class Start extends Activity {
 	
 		info.setMessage(getResources().getString(R.string.agreement).toString());
 		info.setCancelable(true);
+		
 		info.setPositiveButton("Agree",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
@@ -47,7 +48,8 @@ public class Start extends Activity {
 				});
 
 		 AlertDialog infoAlert = info.create();
-			infoAlert.show();
+		 infoAlert.setCanceledOnTouchOutside(false);
+		 infoAlert.show();
 		// infoAlert.show();
 		Button start = (Button) findViewById(R.id.start);
 		start.setOnClickListener(new View.OnClickListener() {

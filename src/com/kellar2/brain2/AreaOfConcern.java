@@ -474,7 +474,32 @@ public class AreaOfConcern extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_home) {
+			//alert 
+			//start
+			//
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Are you Sure?");
+			builder.setMessage("Do you wish to go back to home?");
+			
+			builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Intent intent = new Intent(context, Start.class);
+               	 	startActivity(intent);
+					
+				}
+			});
+			
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+					
+				}
+			});
+			builder.create();
+			builder.show();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
