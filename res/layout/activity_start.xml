@@ -46,6 +46,7 @@
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 android:text="@string/startheader"
                 android:textStyle="italic" />
 
@@ -65,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="left"
+                android:textSize="12sp"
                 android:text="@string/startstrategies"
                 android:textStyle="italic" >
 
@@ -77,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            
             android:layout_weight="0.2">
 
             <TextView
