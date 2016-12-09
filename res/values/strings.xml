@@ -97,7 +97,7 @@
 
     <!-- resources for strategies -->
     <string-array name="fatiguestrategies">
-        <item>Consider Focussing on core/priority subjects (Math, Science, History and English)</item>
+        <item>Consider Focussing on core/priority subjects \n\t(Math, Science, History and English)</item>
         <item>Consider shortening the school day</item>
         <item> Encourage person to take breaks</item>
     </string-array>
