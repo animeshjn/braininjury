@@ -51,6 +51,7 @@ public class Strategies extends Activity {
 	TextView item;
 	TextView first;
 	String sid;
+	static String highlighted;
 	public static final String LOG_TAG = "BRAIN";
 	Context context;
 	MergeAdapter merge = new MergeAdapter();
@@ -705,7 +706,10 @@ public class Strategies extends Activity {
 		header.setText("Physical");
 
 		merge.addView(relativelayout);
-		merge.addViews(getSelectedPhysicalViews(),true);
+		ArrayList<View> selected=getSelectedPhysicalViews();
+		merge.addViews(selected,true);
+		
+		
 	}
 
 	// to append selected from Behavioral area of concern to merge adapter
@@ -2610,7 +2614,7 @@ public class Strategies extends Activity {
 		if (!selectedCognition.isEmpty()) {
 			appendCognitiveItems();
 		}
-
+		
 		v.setAdapter(merge);
 
 		Button next = (Button) findViewById(R.id.nextbuttonstrategieslandscape);
@@ -2723,14 +2727,22 @@ public class Strategies extends Activity {
 	public void highlightThis(TextView tv) {
 		// TODO highlight this
 		// Unhighlight all views
-
 		// ArrayList<View> allTextView = getViewsByTag(
 		// (ViewGroup) findViewById(R.id.listAreas), "header");
 		ListView lv = (ListView) findViewById(R.id.listAreas);
 		MergeAdapter m = (MergeAdapter) lv.getAdapter();
 		m.getCount();
+		
+		//View parent=(View) tv.getParent();
+		//for (int c = 0; c <= m.getCount(); c++) {
+			//View tt = (View) m.getItem(c);
+			
+		//}
+		
+		
 		for (int c = 0; c <= m.getCount(); c++) {
 			View tt = (View) m.getItem(c);
+			m.setActive(tt, true);
 			if (tt instanceof RelativeLayout) {
 				RelativeLayout rl = (RelativeLayout) tt;
 				TextView tc = (TextView) rl.getChildAt(0);
@@ -2738,10 +2750,12 @@ public class Strategies extends Activity {
 				if ((!value.contains("Physical"))
 						&& (!value.contains("Behavioral"))
 						&& (!value.contains("General"))) {
+					
 					tc.setBackgroundResource(0);
 				}
 			}
 		}
+		
 
 		// Toast.makeText(context,""+m.getCount(),Toast.LENGTH_LONG).show();
 		// int i=0;
@@ -2770,6 +2784,7 @@ public class Strategies extends Activity {
 		MergeAdapter m = (MergeAdapter) lv.getAdapter();
 		m.getCount();
 		View tt = (View) m.getItem(1);
+		m.setActive(tt,true);
 		RelativeLayout rl = (RelativeLayout) tt;
 		TextView tc = (TextView) rl.getChildAt(0);
 		tc.callOnClick();
