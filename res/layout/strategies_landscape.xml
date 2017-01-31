@@ -75,19 +75,20 @@
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="44dp"
+                    android:layout_width="52dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:text="|Sub Strategies"
                     android:textColor="#FFFFFF"
-                    android:textSize="9.5sp" />
+                    android:textSize="11sp" />
                 
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                
+                android:layout_height="fill_parent"
                 android:orientation="horizontal"
                  android:layout_below="@+id/listingheader"
                  android:layout_above="@+id/commentslayoutview"
@@ -100,7 +101,10 @@
                 <TableLayout
                     android:id="@+id/subareatable"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content" 
+                    android:showDividers="middle"
+        android:divider="@drawable/divider_list"
+        >
                 </TableLayout>
                 </ScrollView>
             </LinearLayout>
@@ -115,16 +119,12 @@
                 android:gravity="bottom"
                 android:orientation="horizontal" >
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content" />
-
                 <TextView
                     android:id="@+id/commentlabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Additional Comments:"
-                    android:textSize="18sp" 
+                    android:textSize="14sp" 
                     android:textColor="@android:color/holo_blue_dark"/>
 
                 <EditText
@@ -132,9 +132,10 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="Optional"
-                    android:imeActionLabel="Save" 
+                    android:imeActionLabel="Save"
+                    
                     android:imeOptions="actionDone"
-                    android:cursorVisible="false"
+                    android:cursorVisible="true"
                     />
             </LinearLayout>
         </RelativeLayout>

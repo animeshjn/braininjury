@@ -1,11 +1,17 @@
 package com.kellar.brain2;
 
 import java.io.ByteArrayOutputStream;
+
+import android.graphics.Bitmap;
+
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
@@ -25,12 +31,18 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEvent;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.codec.Base64.InputStream;
+import com.itextpdf.text.pdf.codec.Base64.OutputStream;
+import com.kellar2.brain2.R;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.ParseException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -47,7 +59,8 @@ public class PdfBean implements Runnable {
 	Context context;
 	CheckHandle check;
 	Document document;
-
+	Date date;
+	String sdate;
 	public Context getContext() {
 		return context;
 	}
@@ -114,10 +127,12 @@ public class PdfBean implements Runnable {
 			/* START CREATING FIRST ROW TO BE ADDED TO THE DOC */
 
 			// getting Image from assets
-			java.io.InputStream im2 = activity.getAssets().open("header1.png");
-			Bitmap bmp2 = BitmapFactory.decodeStream(im2);
+			//java.io.InputStream im2 = activity.getAssets().open("header1.png");
+			//Bitmap bmp2 = BitmapFactory.decodeStream(im2);
+			
+			Bitmap bmp2=((BitmapDrawable)activity.getResources().getDrawable(R.drawable.header1)).getBitmap();
 			ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
-			bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream4);
+			bmp2.compress(Bitmap.CompressFormat.JPEG,100, stream4);
 			Image fimage = Image.getInstance(stream4.toByteArray());
 			fimage.scaleToFit(document.getPageSize().getWidth(), 500);
 			fimage.setAbsolutePosition(0,
@@ -128,10 +143,11 @@ public class PdfBean implements Runnable {
 			table.addCell(fimagelogocell);
 
 			// CREATING THE NEXT ROW
-			java.io.InputStream sum = activity.getAssets().open("summary.png");
-			Bitmap sumbmp = BitmapFactory.decodeStream(sum);
+			//java.io.InputStream sum = activity.getAssets().open("summary.png");
+			//Bitmap sumbmp = BitmapFactory.decodeStream(sum);
+			Bitmap sumbmp=((BitmapDrawable)activity.getResources().getDrawable(R.drawable.summary)).getBitmap();
 			ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-			sumbmp.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+			sumbmp.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
 			Image sumimage = Image.getInstance(stream2.toByteArray());
 			sumimage.scaleToFit(document.getPageSize().getWidth(), 500);
 			sumimage.setAbsolutePosition(0,
@@ -140,7 +156,26 @@ public class PdfBean implements Runnable {
 
 			// ROW2 ADDED
 			table.addCell(summarycell);
-
+			
+			Phrase textinfostart = new Phrase();
+			textinfostart.add(new Chunk("This is a summary of the strategies selected to put in"
+					+ " place for this student "
+					+ "who is experiencing symptoms from a brain injury/concussion",
+					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
+							BaseColor.DARK_GRAY)));
+			PdfPCell infostart = new PdfPCell(textinfostart);
+			infostart.setBorder(0);
+			
+			table.addCell(infostart);
+			
+			 date=Calendar.getInstance().getTime();
+			 
+			String pattern = "MMMM dd, yyyy";
+			SimpleDateFormat format = new SimpleDateFormat(pattern);
+			
+			       sdate = format.format(date);
+			      System.out.println(date);
+			    
 			/* FOR ADDING STUDENT ID AND DATE */
 			SharedPreferences sharedpreferences = activity
 					.getSharedPreferences("BrainPreferences",
@@ -149,7 +184,7 @@ public class PdfBean implements Runnable {
 
 			Phrase phrase = new Phrase();
 			phrase.add(new Chunk("Student ID: " + sid + "              "
-					+ "                   " + Calendar.getInstance().getTime(),
+					+ "                   Date:" + sdate,
 					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD,
 							BaseColor.RED)));
 			PdfPCell student = new PdfPCell(phrase);
@@ -169,8 +204,8 @@ public class PdfBean implements Runnable {
 					Log.d("Brain", "start page event"+document.getPageNumber());
 					Phrase phrase = new Phrase();
 					phrase.add(new Chunk("Student ID: " + sid
-							+ "                      " + "   "
-							+ Calendar.getInstance().getTime(), new Font(
+							+ "                      " + "   Date:"
+							+sdate, new Font(
 							Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD,
 							BaseColor.RED)));
 					PdfPCell student = new PdfPCell(phrase);
@@ -217,10 +252,11 @@ public class PdfBean implements Runnable {
 				public void onEndPage(PdfWriter writer, Document doc) {
 					// getting Image from assets
 					try{
-					java.io.InputStream ims = activity.getAssets().open("footerslogo.png");
-					Bitmap bmp = BitmapFactory.decodeStream(ims);
+					//java.io.InputStream ims = activity.getAssets().open("footerslogo.png");
+					//Bitmap bmp = BitmapFactory.decodeStream(ims);
+					Bitmap bmp=((BitmapDrawable)activity.getResources().getDrawable(R.drawable.footerslogo)).getBitmap();
 					ByteArrayOutputStream stream = new ByteArrayOutputStream();
-					bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+					bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
 					Image image = Image.getInstance(stream.toByteArray());
 					image.scaleToFit(doc.getPageSize().getWidth(), 300);
 					image.scaleAbsoluteHeight(80);
@@ -298,6 +334,17 @@ public class PdfBean implements Runnable {
 
 			// Added Whole table at once
 			// problem
+			
+			Phrase textinfoend = new Phrase();
+			textinfoend.add(new Chunk("This document is generated from the Brain Injury Strategies App available from Google Play.",
+					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
+							BaseColor.DARK_GRAY)));
+			PdfPCell infoend = new PdfPCell(textinfoend);
+			
+			infoend.setBorder(0);
+			
+			table.addCell(infoend);
+			
 			document.add(table);
 			Log.d("Brain", "close document");
 			document.close();
@@ -567,5 +614,71 @@ public class PdfBean implements Runnable {
 		
 		return s;
 	}
+	
+	
+//	public static void openHelp(Context activity)
+//	{
+//		try {
+//		
+//		//File pdfFile1=	new File(assets.open("help.pdf"));
+//		java.io.InputStream sum = activity.getAssets().open("summary.png");
+//		PDF
+//		File pdfFile = new File("file:///android_asset/help.pdf");
+//		Log.d("Brain", "OPENED");
+//		Uri readpath = Uri.fromFile(pdfFile);
+//		Log.d("Brain", "URI CAPTURED");
+//		Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+//		pdfIntent.setDataAndType(readpath, "application/pdf");
+//		pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		Log.d("Brain", "STARTING INTENT...");
+//		activity.startActivity(pdfIntent);
+//		
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+	
+	public void openHelp(Context activity)
+    {
+        AssetManager assetManager = activity.getAssets();
+
+        java.io.InputStream in = null;
+        java.io.OutputStream out = null;
+        File file = new File(activity.getFilesDir(), "help.pdf");
+        try
+        {
+            in = assetManager.open("help.pdf");
+            out = activity.openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+            copyFile(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+        } catch (Exception e)
+        {
+            Log.e("tag", e.getMessage());
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(
+                Uri.parse("file://" + activity.getFilesDir() + "/help.pdf"),
+                "application/pdf");
+
+        activity.startActivity(intent);
+    }
+
+    private void copyFile(java.io.InputStream in, java.io.OutputStream out) throws IOException
+    {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1)
+        {
+            out.write(buffer, 0, read);
+        }
+    }
 
 }
+

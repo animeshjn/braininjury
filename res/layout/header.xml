@@ -10,7 +10,8 @@
         android:background="@drawable/framefilled"
         android:tag="header"
         android:text="Physical"
-        android:gravity="center_horizontal"
+        android:gravity="left"
+        android:paddingLeft="5dp"
         android:textColor="#ffffff"
         android:textSize="22sp" >
     </TextView>

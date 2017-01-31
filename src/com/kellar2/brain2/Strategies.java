@@ -230,6 +230,7 @@ public class Strategies extends Activity {
 		for (int i = 0; i < subStrategies.length; i++) {
 			LinearLayout sublayout = new LinearLayout(table.getContext());
 			sublayout.setOrientation(LinearLayout.HORIZONTAL);
+			sublayout.setPadding(5,10,0, 10);
 			sublayout.setLayoutParams(new LinearLayout.LayoutParams(
 					LinearLayout.LayoutParams.MATCH_PARENT,
 					LinearLayout.LayoutParams.MATCH_PARENT));
@@ -423,7 +424,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -628,7 +629,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -704,7 +705,7 @@ public class Strategies extends Activity {
 		header.setText("Physical");
 
 		merge.addView(relativelayout);
-		merge.addViews(getSelectedPhysicalViews());
+		merge.addViews(getSelectedPhysicalViews(),true);
 	}
 
 	// to append selected from Behavioral area of concern to merge adapter
@@ -721,7 +722,7 @@ public class Strategies extends Activity {
 
 		merge.addView(relativelayout);
 
-		merge.addViews(getSelectedBehavioralViews());
+		merge.addViews(getSelectedBehavioralViews(),true);
 
 	}
 
@@ -737,7 +738,7 @@ public class Strategies extends Activity {
 				.findViewById(R.id.listheader);
 		header.setText("General Cognition");
 		merge.addView(relativelayout);
-		merge.addViews(getSelectedCognitiveViews());
+		merge.addViews(getSelectedCognitiveViews(),true);
 
 	}
 
@@ -887,7 +888,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -1066,7 +1067,7 @@ public class Strategies extends Activity {
 							Button sub = new Button(context);
 							// ib.setLayoutParams(params);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -1274,7 +1275,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -1475,7 +1476,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -1682,7 +1683,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -1889,7 +1890,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -2097,7 +2098,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -2305,7 +2306,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -2513,7 +2514,7 @@ public class Strategies extends Activity {
 
 							Button sub = new Button(context);
 							RelativeLayout.LayoutParams buttonparam = new RelativeLayout.LayoutParams(
-									40, 40);
+									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
@@ -2693,6 +2694,8 @@ public class Strategies extends Activity {
                	 	startActivity(intent);
 					
 				}
+				
+				
 			});
 			
 			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -2705,6 +2708,14 @@ public class Strategies extends Activity {
 			builder.create();
 			builder.show();
 			return true;
+			
+			
+			
+		}
+		
+		if(id == R.id.action_help)
+		{
+			new PdfBean().openHelp(context);
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -2806,7 +2817,7 @@ public class Strategies extends Activity {
 		final int index=i;
 		EditText editText =((EditText) findViewById(R.id.comments));
 		editText.setSingleLine(true);
-		  editText.setLines(4);
+		  editText.setLines(3);
 		  editText.setHorizontallyScrolling(false);
 		  editText.setText(check.getCommentText(index));
 		

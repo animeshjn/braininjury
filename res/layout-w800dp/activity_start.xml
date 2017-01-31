@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/strategies"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border2"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_weight="95"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/startlayoutpart1"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="48.10"
+            android:background="@drawable/frame"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:weightSum="1" >
+
+            <LinearLayout
+                android:id="@+id/startlayoutheader1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/framefilled"
+                    android:gravity="center"
+                    android:text="@string/startheader"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp"
+                    android:textStyle="italic|bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/startlayoutcontent1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:orientation="vertical" >
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="left"
+                        android:text="@string/startstrategiesexpanded"
+                        android:textSize="20sp"
+                        android:textStyle="italic" >
+                    </TextView>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/startlayoutfooter1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sources"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/framefilled"
+                    android:gravity="center"
+                    android:text="@string/startfooter"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/hospitallink1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:autoLink="web"
+                    android:background="@drawable/framefilled"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:text="@string/hospitallink"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/startlayoutbuttonarea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/start_button" />
+    </LinearLayout>
+<LinearLayout android:layout_width="wrap_content" 
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_gravity="end"
+         android:gravity="start"
+         >   
+    <ImageView
+        android:id="@+id/mainactivity_kihdbttn"
+        android:layout_width="wrap_content"
+        
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:adjustViewBounds="true"
+        android:contentDescription="VDOE Logo"
+        android:gravity="end"
+        android:onClick="buttonHandler"
+        android:src="@drawable/flyup_menubg_top" />
+
+    <LinearLayout
+        android:id="@+id/mainactivity_flyupmenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:gravity="start"
+        android:orientation="horizontal" 
+        android:weightSum="1">
+            
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

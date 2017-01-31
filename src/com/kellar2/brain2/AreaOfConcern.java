@@ -3,6 +3,7 @@ package com.kellar2.brain2;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.kellar.brain2.PdfBean;
 import com.kellar2.brain2.R;
 
 import android.annotation.SuppressLint;
@@ -11,20 +12,28 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnShowListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -502,24 +511,48 @@ public class AreaOfConcern extends Activity {
 			builder.show();
 			return true;
 		}
+		
+		if(id == R.id.action_help)
+		{
+			new PdfBean().openHelp(context);
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	@SuppressLint("NewApi") public void inputId() {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		String message=getResources().getString(R.string.student_id).toString();
+		TextView textMessage= new TextView(context);
+		textMessage.setText(message);
+		textMessage.setTextSize(18);
+		textMessage.setPadding(10, 10, 10, 10);
+		textMessage.setGravity(Gravity.CENTER_HORIZONTAL);
 		
-		builder.setMessage("Please enter student ID: \n "
-				+ "Must contain 3-9 digits / letters \n(Max of two letters)- e.g\n"
-				+ "246857212 or GR1357\n"
-				+ "(To preview app, use 1234)");
+		
+		//builder.setView(textMessage);
+		
+		
+		
+		
 		// Set up the input
 		final EditText input = new EditText(this);
 		// Specify the type of input expected; this, for example, sets the input
 		// as a password, and will mask the text
 		input.setInputType(InputType.TYPE_CLASS_TEXT
 				| InputType.TYPE_TEXT_VARIATION_NORMAL);
-		builder.setView(input);
+		input.setHovered(true);
+		
+		
+		LinearLayout layout = new LinearLayout(context);
+//		layout.setGravity(LinearLayout.VERTICAL);
+		layout.setOrientation(LinearLayout.VERTICAL);
+		layout.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+		layout.addView(textMessage);
+		layout.addView(input);
+		builder.setTitle("Please enter Student ID");
+		builder.setView(layout);
+		
 		builder.setCancelable(false);
 		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
 			
@@ -530,7 +563,7 @@ public class AreaOfConcern extends Activity {
 			}
 		});
 		// Set up the buttons
-		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+		builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				sid = input.getText().toString();
@@ -538,9 +571,18 @@ public class AreaOfConcern extends Activity {
 				
 			}
 		});
-		builder.create();
-		builder.show();
-
+		
+		AlertDialog alert=builder.create();
+		alert.setOnShowListener(new OnShowListener() {
+		    @Override
+		     public void onShow(DialogInterface dialog) {
+		         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		         imm.showSoftInput(input, InputMethodManager.SHOW_IMPLICIT);
+		    }
+		});
+		alert.show();
+		
+		//alert.getWindow().setLayout(400, 500); 
 		
 		
 	}
