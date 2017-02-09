@@ -3,7 +3,7 @@
     android:id="@+id/strategies"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border2"
+    android:background="@drawable/strategiestiles"
     android:orientation="vertical"
     android:weightSum="100" >
 
@@ -72,6 +72,7 @@
                         android:layout_height= "wrap_content"
                         android:layout_gravity= "center_horizontal"
                         android:gravity= "left"
+                        android:background="#7FFFFFFF"
                         android:text= "@string/startstrategies"
                         android:textSize="12sp"
                         android:textStyle= "italic" >

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/border2"
+    android:background="@drawable/strategiestiles"
     android:weightSum="1"
     >
 
@@ -87,6 +87,7 @@
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
                     android:gravity="center"
+                    android:textSize="18sp"
                     android:paddingLeft="5dip"
                     android:paddingRight="2dip"
                     android:textColor="#ffffff"
@@ -99,6 +100,7 @@
 
                 <ToggleButton
                     android:id="@+id/sensory"
+                    android:textSize="18sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -109,8 +111,8 @@
                     android:paddingLeft="2dip"
                     android:paddingRight="2dip"
                     android:textColor="#ffffff"
-                    android:textOff="Sensory / Motor"
-                    android:textOn="Sensory / Motor" />
+                    android:textOff="Sensory/Motor"
+                    android:textOn="Sensory/Motor" />
 
             </LinearLayout></LinearLayout>
         </LinearLayout>
@@ -135,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/framefilled"
                 android:gravity="center"
-                android:text="Behavioral / Social"
+                android:text="Behavioral/Social"
                 android:textColor="#ffffff" />
 
             <LinearLayout
@@ -165,6 +167,7 @@
                     android:drawableRight="@drawable/info"
                     android:gravity="center"
                     android:paddingLeft="5dp"
+                    android:textSize="18sp"
                     android:textColor="#ffffff"
                     android:textOff="Self-Monitoring"
                     android:textOn="Self-Monitoring" />
@@ -182,6 +185,7 @@
                     android:drawableEnd="@drawable/info"
                     android:drawableRight="@drawable/info"
                     android:gravity="center"
+                    android:textSize="18sp"
                     android:textColor="#ffffff"
                     android:textOff="Attention"
                     android:textOn="Attention" />
@@ -255,8 +259,10 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Communication Receptive"
-                        android:textOn="Communication Receptive" />
+                        android:textSize="18sp"
+                        android:textOff="Communication: Receptive"
+                        android:textOn="Communication: Receptive"
+                        android:drawablePadding="0dp" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -272,8 +278,10 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Communication Expressive"
-                        android:textOn="Communication Expressive" />
+                        android:textSize="18sp"
+                        android:textOff="Communication: Expressive"
+                        android:textOn="Communication: Expressive" 
+                        android:drawablePadding="0dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -288,6 +296,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_gravity="top|left|start"
                 android:orientation="vertical" 
+                android:textSize="18sp"
                  android:layout_weight="45">
 
                 <LinearLayout
@@ -297,6 +306,7 @@
                     android:layout_gravity="center_horizontal"
                     android:orientation="vertical"
                     android:paddingBottom="5dp"
+                    android:textSize="18sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp" >
 
@@ -306,15 +316,16 @@
 
                     <ToggleButton
                         android:id="@+id/speed"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
-                        
+                        android:textSize="18sp"
+                        android:paddingLeft="5dp"
                         android:textColor="#ffffff"
-                        android:textOff="Speed of Information processing"
-                        android:textOn="Speed of Information processing" 
+                        android:textOff="Speed of Information Processing"
+                        android:textOn="Speed of Information Processing" 
                         android:gravity="center_vertical|center_horizontal"
                         android:textAlignment="center"/>
 
@@ -324,17 +335,19 @@
 
                     <ToggleButton
                         android:id="@+id/planning"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
                         android:gravity="center_vertical|center_horizontal"
                         android:textAlignment="center"
+                        android:textSize="18sp"
                         android:textColor="#ffffff"
                         android:paddingLeft="5dp"
-                        android:textOff="Planning / Organizing"
-                        android:textOn="Planning / Organizing" 
+                        android:drawablePadding="0dp"
+                        android:textOff="Planning/Organizing"
+                        android:textOn="Planning/Organizing" 
                         />
 
                     <Space
@@ -367,7 +380,7 @@
                         android:id="@+id/memoryhidden"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        
+                        android:textSize="18sp"
                         android:background="@drawable/mybutton"
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
@@ -391,6 +404,7 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
+                        android:textSize="18sp"
                         android:textOff="Memory"
                         android:textOn="Memory" />
 
@@ -433,6 +447,7 @@
                         android:drawableEnd="@drawable/info"
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
+                        android:textSize="18sp"
                         android:textColor="#ffffff"
                         android:textOff="Reasoning"
                         android:textOn="Reasoning" />
@@ -452,6 +467,7 @@
                         android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:paddingLeft="5dp"
+                        android:textSize="18sp"
                         android:textOff="Problem Solving"
                         android:textOn="Problem Solving" />
 
@@ -482,6 +498,7 @@
                android:layout_width="wrap_content"
         	   android:layout_height="wrap_content" 
         	   android:text="@string/longpress" 
+        	   android:textSize="18sp"
                android:textColor="#000000" 
                android:drawableRight="@drawable/info"
                android:drawableEnd="@drawable/info"/>
@@ -489,16 +506,51 @@
         <TextView android:id="@+id/legendlearn" 
                android:layout_width="wrap_content"
         	   android:layout_height="wrap_content" 
+        	   android:textSize="18sp"
         	   android:text="@string/longpressinfo" 
                android:textColor="#000000" 
                />
-       
+      
         
    </LinearLayout>       
           
-          
+          <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:orientation="horizontal" >
+        <TextView android:id="@+id/legendselect"
+            android:textSize="18sp" 
+               android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content" 
+        	   android:text="@string/selectInfo" 
+               android:textColor="#000000" 
+               />
+        <Space android:layout_width="10sp" android:layout_height="wrap_content"/>
+        <ToggleButton android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:textOn="Selected"
+           android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/mybutton"
+            android:checked="true"
+            android:enabled="false"/>
+        <Space android:layout_width="10sp" android:layout_height="wrap_content"/>
+          <ToggleButton android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:textSize="18sp"
+            android:textOff="Not Selected"
+            android:background="@drawable/mybutton"
+            android:textColor="#ffffff"
+            android:checked="false"
+            android:enabled="false"/>
+        </LinearLayout>
           
 		</LinearLayout>
+		
+       
     </LinearLayout>
 
  

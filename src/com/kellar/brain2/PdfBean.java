@@ -25,6 +25,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -88,7 +89,7 @@ public class PdfBean implements Runnable {
 		try {
 
 			// HAVE A PRINT WRITER HANDY
-			PdfWriter writer = null;
+			 PdfWriter writer = null;
 			// SETUP PATH
 			String path = Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/Strategies";
@@ -160,9 +161,9 @@ public class PdfBean implements Runnable {
 			Phrase textinfostart = new Phrase();
 			textinfostart.add(new Chunk("This is a summary of the strategies selected to put in"
 					+ " place for this student "
-					+ "who is experiencing symptoms from a brain injury/concussion",
+					+ "who is experiencing symptoms from a brain injury/concussion.",
 					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
-							BaseColor.DARK_GRAY)));
+							BaseColor.BLACK)));
 			PdfPCell infostart = new PdfPCell(textinfostart);
 			infostart.setBorder(0);
 			
@@ -184,9 +185,9 @@ public class PdfBean implements Runnable {
 
 			Phrase phrase = new Phrase();
 			phrase.add(new Chunk("Student ID: " + sid + "              "
-					+ "                   Date:" + sdate,
+					+ "                   Date: " + sdate,
 					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD,
-							BaseColor.RED)));
+							BaseColor.BLACK)));
 			PdfPCell student = new PdfPCell(phrase);
 			student.setBorder(0);
 			document.top();
@@ -204,15 +205,15 @@ public class PdfBean implements Runnable {
 					Log.d("Brain", "start page event"+document.getPageNumber());
 					Phrase phrase = new Phrase();
 					phrase.add(new Chunk("Student ID: " + sid
-							+ "                      " + "   Date:"
+							+ "                      " + "   Date: "
 							+sdate, new Font(
 							Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD,
-							BaseColor.RED)));
+							BaseColor.BLACK)));
 					PdfPCell student = new PdfPCell(phrase);
 					student.setBorder(0);
 					PdfPTable headTable = new PdfPTable(1);
 					headTable.addCell(student);
-//					Rectangle rect =writer.getBoxSize("box");
+
 					writer.getDirectContent();
 					try {
 						document.top();
@@ -221,7 +222,7 @@ public class PdfBean implements Runnable {
 						
 						
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 
@@ -231,21 +232,49 @@ public class PdfBean implements Runnable {
 				@Override
 				public void onChapter(PdfWriter arg0, Document arg1,
 						float arg2, Paragraph arg3) {
-					// TODO Auto-generated method stub
+					
 
 				}
 
 				@Override
 				public void onChapterEnd(PdfWriter arg0, Document arg1,
 						float arg2) {
-					// TODO Auto-generated method stub
+					
 
 				}
 
 				@Override
 				public void onCloseDocument(PdfWriter arg0, Document arg1) {
-					// TODO Auto-generated method stub
-
+					
+					//try {
+//					Rectangle rect=arg1.getPageSize();
+//					Chunk foot= new Chunk("This document is generated from the Brain Injury Strategies App available from Google Play."
+//							,new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
+//							BaseColor.DARK_GRAY));
+//					PdfPCell cell = new PdfPCell();
+//					cell.addElement(foot);
+//					PdfPTable foottable = new PdfPTable(1);
+//					foottable.addCell(cell);
+//					
+//					
+//					String endFootText="This document is generated from the Brain Injury Strategies App available from Google Play.";
+//					BaseFont bf;
+//					bf = BaseFont.createFont(BaseFont.TIMES_ITALIC, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+//					PdfContentByte canvas = arg0.getDirectContent();
+//					canvas.saveState();
+//					canvas.beginText();
+//					canvas.moveText(0,85);
+//					canvas.setFontAndSize(bf, 12);
+//					canvas.showText(endFootText);
+//					canvas.endText();
+//					canvas.restoreState();
+//				} catch (DocumentException e) {
+//					
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					
+//					e.printStackTrace();
+//				}
 				}
 
 				@Override
@@ -331,21 +360,36 @@ public class PdfBean implements Runnable {
 			);
 
 			setPdfContentString(check);
-
+			document.add(table);
 			// Added Whole table at once
 			// problem
+//			
+//			Phrase textinfoend = new Phrase();
+//			textinfoend.add(new Chunk("This document is generated from the Brain Injury Strategies App available from Google Play.",
+//					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
+//							BaseColor.DARK_GRAY)));
+//			PdfPCell infoend = new PdfPCell(textinfoend);
+//			
+//			infoend.setBorder(0);
+//			
+//			table.addCell(infoend);
 			
-			Phrase textinfoend = new Phrase();
-			textinfoend.add(new Chunk("This document is generated from the Brain Injury Strategies App available from Google Play.",
-					new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
-							BaseColor.DARK_GRAY)));
-			PdfPCell infoend = new PdfPCell(textinfoend);
+			String endFootText="This document is generated from the Brain Injury Strategies App available from Google Play.";
+			Font f2= new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.ITALIC,
+					BaseColor.DARK_GRAY);
+			BaseFont bf=f2.getBaseFont();;
 			
-			infoend.setBorder(0);
+			bf = BaseFont.createFont(BaseFont.TIMES_ITALIC, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+		
+			PdfContentByte canvas = writer.getDirectContent();
+			canvas.saveState();
+			canvas.beginText();
+			canvas.moveText(0,85);
+			canvas.setFontAndSize(bf, 12);
+			canvas.showText(endFootText);
+			canvas.endText();
+			canvas.restoreState();
 			
-			table.addCell(infoend);
-			
-			document.add(table);
 			Log.d("Brain", "close document");
 			document.close();
 			Intent intent = new Intent(Intent.ACTION_VIEW);

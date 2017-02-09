@@ -28,24 +28,29 @@
         </activity>
         <activity
             android:name=".AreaOfConcern"
-            android:label="@string/title_activity_area_of_concern" >
+            android:label="@string/title_activity_area_of_concern" 
+            android:screenOrientation="landscape">"
         </activity>
         <activity
             android:name=".Start"
-            android:label="@string/title_activity_start" >
+            android:label="@string/title_activity_start"
+            android:screenOrientation="landscape">"
         </activity>
         <activity
             android:name=".Strategies"
             android:label="@string/title_activity_strategies"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="adjustResize" 
+            android:screenOrientation="landscape">"
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".LegalActivity"
-            android:label="@string/title_activity_legal" >
+            android:label="@string/title_activity_legal"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

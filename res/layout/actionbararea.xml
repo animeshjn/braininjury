@@ -7,7 +7,7 @@
    <TextView android:id="@+id/actionbartitle" android:layout_height="match_parent" android:layout_width="match_parent"
        android:layout_gravity="center_horizontal|center_vertical" android:gravity="center_horizontal|center_vertical"
        android:textSize="20sp"
-       android:text="Area Of Concern"
+       android:text="Area(s) of Concern"
        android:textStyle="bold"
        />
    

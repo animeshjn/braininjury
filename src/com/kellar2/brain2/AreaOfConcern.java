@@ -44,8 +44,8 @@ public class AreaOfConcern extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		getActionBar().setDisplayUseLogoEnabled(false);
@@ -57,9 +57,9 @@ public class AreaOfConcern extends Activity {
 		// getActionBar().setTitle("Area of Concern");
 		// getActionBar().setDisplayShowHomeEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
-
+		
 		setContentView(R.layout.areaofconcernlandscape);
-
+		
 		AreaOfConcern.context = AreaOfConcern.this;
 
 		setAllLongClickListeners();
@@ -75,7 +75,7 @@ public class AreaOfConcern extends Activity {
 
 				if (isSelectionEmpty()) {
 					AlertDialog.Builder info = new AlertDialog.Builder(context);
-					info.setMessage("Please select at least one\n area of concern ");
+					info.setMessage("Please select at least one area of concern");
 					info.setCancelable(true);
 
 					info.setPositiveButton("OK",
@@ -122,7 +122,7 @@ public class AreaOfConcern extends Activity {
 						context);
 				fatigueinfo.setMessage("" + fatigueinformation);
 				fatigueinfo.setCancelable(true);
-				fatigueinfo.setTitle("Fatigue/ Endurance");
+				fatigueinfo.setTitle("Fatigue/Endurance");
 				fatigueinfo.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -151,7 +151,7 @@ public class AreaOfConcern extends Activity {
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
 				info.setMessage("" + sensoryinformation);
 				info.setCancelable(true);
-				info.setTitle("Sensory / Motor");
+				info.setTitle("Sensory/Motor");
 				info.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -241,7 +241,7 @@ public class AreaOfConcern extends Activity {
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
 				info.setMessage("" + receptiveInformation);
 				info.setCancelable(true);
-				info.setTitle("Receptive");
+				info.setTitle("Receptive Communication");
 				info.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -271,7 +271,7 @@ public class AreaOfConcern extends Activity {
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
 				info.setMessage("" + expressiveInformation);
 				info.setCancelable(true);
-				info.setTitle("Expressive");
+				info.setTitle("Expressive Communication");
 				info.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -330,7 +330,7 @@ public class AreaOfConcern extends Activity {
 				AlertDialog.Builder info = new AlertDialog.Builder(context);
 				info.setMessage("" + planningInformation);
 				info.setCancelable(true);
-				info.setTitle("Planning/ Organizing");
+				info.setTitle("Planning/Organizing");
 				info.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {

@@ -205,7 +205,7 @@ public class Strategies extends Activity {
 			final int checkBoxId, final String area) {
 
 		TableRow row = new TableRow(context);
-
+		row.setPadding(5,10,0, 10);
 		TableRow.LayoutParams params = new TableRow.LayoutParams(
 				TableRow.LayoutParams.WRAP_CONTENT);
 		row.setLayoutParams(params);
@@ -327,6 +327,7 @@ public class Strategies extends Activity {
 
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
+							row.setPadding(5,10,0, 10);
 							row.setLayoutParams(params);
 							RelativeLayout layout = new RelativeLayout(table
 									.getContext());
@@ -428,8 +429,10 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							sub.setLayoutParams(buttonparam);
 							sub.setBackground(getResources().getDrawable(
 									R.drawable.plusbuttondraw));
@@ -464,6 +467,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 							layout.setBackground(getResources().getDrawable(
@@ -527,6 +532,7 @@ public class Strategies extends Activity {
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
+							row.setPadding(5,10,0, 10);
 							RelativeLayout layout = new RelativeLayout(table
 									.getContext());
 
@@ -635,6 +641,7 @@ public class Strategies extends Activity {
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							sub.setLayoutParams(buttonparam);
 							sub.setBackground(getResources().getDrawable(
 									R.drawable.plusbuttondraw));
@@ -670,6 +677,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -798,7 +807,7 @@ public class Strategies extends Activity {
 
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -897,6 +906,7 @@ public class Strategies extends Activity {
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							sub.setLayoutParams(buttonparam);
 							sub.setBackground(getResources().getDrawable(
 									R.drawable.plusbuttondraw));
@@ -931,6 +941,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							/* SETUP BACKGROUND */
 							layout.setBackground(getResources().getDrawable(
 									R.drawable.checkback));
@@ -974,7 +986,7 @@ public class Strategies extends Activity {
 
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -1076,7 +1088,9 @@ public class Strategies extends Activity {
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							sub.setLayoutParams(buttonparam);
+							
 							sub.setBackground(getResources().getDrawable(
 									R.drawable.plusbuttondraw));
 
@@ -1111,8 +1125,11 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
-							layout.addView(checkboxlayout);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(sub);
+							layout.addView(checkboxlayout);
+							
 							/* SETUP BACKGROUND */
 							layout.setBackground(getResources().getDrawable(
 									R.drawable.checkback));
@@ -1177,7 +1194,7 @@ public class Strategies extends Activity {
 
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -1282,6 +1299,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -1314,6 +1332,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 							layout.setBackground(getResources().getDrawable(
@@ -1374,7 +1394,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -1485,6 +1505,7 @@ public class Strategies extends Activity {
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							sub.setLayoutParams(buttonparam);
 							sub.setBackground(getResources().getDrawable(
 									R.drawable.plusbuttondraw));
@@ -1520,6 +1541,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -1583,7 +1606,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -1690,6 +1713,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -1726,6 +1750,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -1789,7 +1815,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -1897,6 +1923,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -1934,6 +1961,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -1997,7 +2026,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -2105,6 +2134,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -2141,6 +2171,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -2204,7 +2236,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -2313,6 +2345,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -2350,6 +2383,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -2413,7 +2448,7 @@ public class Strategies extends Activity {
 						// PROCESS THE TABLE
 						for (int i = 0; i < array.length; i++) {
 							TableRow row = new TableRow(context);
-
+							row.setPadding(5,10,0, 10);
 							TableRow.LayoutParams params = new TableRow.LayoutParams(
 									TableRow.LayoutParams.WRAP_CONTENT);
 							row.setLayoutParams(params);
@@ -2521,6 +2556,7 @@ public class Strategies extends Activity {
 									60, 60);
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_END);
+							buttonparam.addRule(RelativeLayout.RIGHT_OF,checkBox.getId());
 							buttonparam
 									.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 							sub.setLayoutParams(buttonparam);
@@ -2558,6 +2594,8 @@ public class Strategies extends Activity {
 							});
 
 							checkboxlayout.addView(checkBox);
+							checkboxparam.addRule(RelativeLayout.LEFT_OF,sub.getId());
+							checkboxlayout.setLayoutParams(checkboxparam);
 							layout.addView(checkboxlayout);
 							layout.addView(sub);
 
@@ -2638,10 +2676,13 @@ public class Strategies extends Activity {
 					//Something Unchecked
 				{
 //						Alert
+					String validationMessage="Strategies and/or sub-strategies have not been selected for the following "
+							+ "area(s) of concern (no orange star):";
+					
 					AlertDialog.Builder info = new AlertDialog.Builder(context);
 					info.setTitle("Do you wish to continue?");
 				
-					info.setMessage("Following area of concern(s) is/are not checked:\n"+unchecked+
+					info.setMessage(validationMessage+"\n"+unchecked+
 												""	);
 					info.setCancelable(true);
 					info.setPositiveButton("Continue",
@@ -2664,7 +2705,7 @@ public class Strategies extends Activity {
 					info.show();
 				}
 				else
-					Toast.makeText(context, "Please Check Atleast one Area of Concern", Toast.LENGTH_SHORT+1).show();
+					Toast.makeText(context, "Please check at least one strategy or sub-strategy to continue.", Toast.LENGTH_SHORT+1).show();
 				//on yes generate PDF
 			}
 		});

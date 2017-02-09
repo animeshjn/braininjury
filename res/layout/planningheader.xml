@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:tag="header"
-        android:text="Planning / Organizing"
+        android:text="Planning/Organizing"
         android:textSize="18sp" >
     </TextView>
 

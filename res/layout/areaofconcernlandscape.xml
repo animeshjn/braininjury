@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/border2"
+    android:background="@drawable/strategiestiles"
     android:weightSum="1"
     >
 
@@ -102,8 +102,8 @@
                     android:paddingLeft="2dip"
                     android:paddingRight="2dip"
                     android:textColor="#ffffff"
-                    android:textOff="Sensory / Motor"
-                    android:textOn="Sensory / Motor" />
+                    android:textOff="Sensory/Motor"
+                    android:textOn="Sensory/Motor" />
 
             </LinearLayout>
         </LinearLayout>
@@ -129,7 +129,7 @@
                 android:background="@drawable/framefilled"
                 android:gravity="center"
                 android:paddingLeft="5dp"
-                android:text="Behavioral / Social"
+                android:text="Behavioral/Social"
                 android:textColor="#ffffff" />
 
             <LinearLayout
@@ -253,8 +253,8 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Communication Receptive"
-                        android:textOn="Communication Receptive" />
+                        android:textOff="Communication: Receptive"
+                        android:textOn="Communication: Receptive" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -270,8 +270,8 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Communication Expressive"
-                        android:textOn="Communication Expressive" />
+                        android:textOff="Communication: Expressive"
+                        android:textOn="Communication: Expressive" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -310,8 +310,8 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Speed of Information processing"
-                        android:textOn="Speed of Information processing" />
+                        android:textOff="Speed of Information Processing"
+                        android:textOn="Speed of Information Processing" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -326,8 +326,8 @@
                         android:drawableRight="@drawable/info"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:textOff="Planning / Organizing"
-                        android:textOn="Planning / Organizing" />
+                        android:textOff="Planning/Organizing"
+                        android:textOn="Planning/Organizing" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -483,8 +483,22 @@
                />
        
         
-   </LinearLayout>       
-          
+   </LinearLayout> 
+         
+     <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:orientation="horizontal" >
+        <TextView android:id="@+id/legendselect" 
+               android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content" 
+        	   android:text="@string/selectInfo" 
+               android:textColor="#000000" 
+               />
+        </LinearLayout>       
           
           
 		</LinearLayout>
