@@ -498,6 +498,24 @@
         	   android:text="@string/selectInfo" 
                android:textColor="#000000" 
                />
+        <Space android:layout_width="10sp" android:layout_height="wrap_content"/>
+        <ToggleButton android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:textOn="Selected"
+           android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/mybutton"
+            android:checked="true"
+            android:enabled="false"/>
+        <Space android:layout_width="10sp" android:layout_height="wrap_content"/>
+          <ToggleButton android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:textSize="18sp"
+            android:textOff="Not Selected"
+            android:background="@drawable/mybutton"
+            android:textColor="#ffffff"
+            android:checked="false"
+            android:enabled="false"/>
         </LinearLayout>       
           
           

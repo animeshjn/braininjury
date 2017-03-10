@@ -51,7 +51,7 @@ public class Start extends Activity {
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.startaction);
 		
-		
+		 
 		setContentView(R.layout.activity_start);
 		
 		context = this;

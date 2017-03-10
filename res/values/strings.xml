@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Brain Injury</string>
+    <string name="app_name">Brain Injury Strategies</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="strategies_title">The Brain Injury Strategies App is intended to provide ideas for supporting an individual who is returning to learning.</string>

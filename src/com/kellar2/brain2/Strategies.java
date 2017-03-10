@@ -8,6 +8,7 @@ import java.util.Map;
 import com.commonsware.cwac.merge.MergeAdapter;
 import com.kellar2.brain2.R;
 import com.kellar.brain2.CheckHandle;
+import com.kellar.brain2.PDFService;
 import com.kellar.brain2.PdfBean;
 
 import android.annotation.SuppressLint;
@@ -717,8 +718,9 @@ public class Strategies extends Activity {
 		merge.addView(relativelayout);
 		ArrayList<View> selected=getSelectedPhysicalViews();
 		merge.addViews(selected,true);
-		
-		
+		for (View view : selected) {
+			merge.setActive(view, true);	
+		}
 	}
 
 	// to append selected from Behavioral area of concern to merge adapter
@@ -2663,8 +2665,11 @@ public class Strategies extends Activity {
 				final PdfBean pdf=new PdfBean();
 				pdf.setContext(context);
 				pdf.setCheck(check);
-				
-				
+//				Intent i= new Intent();
+//				i.setClass(context,PDFService.class);
+//				
+//				startService(i);	
+//				
 				if(checkAllChecked()){
 				Toast.makeText(context, "Generating PDF Please Wait...",
 						Toast.LENGTH_LONG).show();
@@ -2784,6 +2789,7 @@ public class Strategies extends Activity {
 		for (int c = 0; c <= m.getCount(); c++) {
 			View tt = (View) m.getItem(c);
 			m.setActive(tt, true);
+			
 			if (tt instanceof RelativeLayout) {
 				RelativeLayout rl = (RelativeLayout) tt;
 				TextView tc = (TextView) rl.getChildAt(0);
@@ -2791,7 +2797,6 @@ public class Strategies extends Activity {
 				if ((!value.contains("Physical"))
 						&& (!value.contains("Behavioral"))
 						&& (!value.contains("General"))) {
-					
 					tc.setBackgroundResource(0);
 				}
 			}

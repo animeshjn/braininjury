@@ -24,8 +24,9 @@
     </style>
 
     <style name="custom_CheckBoxStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
-     <item name="android:button">@drawable/custom_checkbox</item>
- </style>
+        <item name="android:button">@drawable/custom_checkbox</item>
+    </style>
+
     <style name="TransparentListView" parent="@android:style/Widget.ListView">
         <item name="android:cacheColorHint">@android:color/transparent</item>
     </style>
